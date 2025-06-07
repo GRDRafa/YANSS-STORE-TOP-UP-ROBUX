@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YANSS STORE - Top Up Robux Termurah</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1e40af;
+      --bg-light: #f8fafc;
+      --bg-lighter: #e2e8f0;
+      --text-dark: #1e293b;
+      --radius: 12px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+
+    .input-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      border: 2px solid var(--bg-lighter);
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .calculate-button {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .calculate-button:hover {
+      background: var(--primary-hover);
+    }
+
+    .payment-methods {
+      display: none;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .payment-method {
+      background: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .payment-method:hover {
+      background: var(--primary-hover);
+    }
+
+    .popup-overlay, .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+    }
+
+    .popup-overlay {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
+    }
+
+    .popup {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+
+    .popup p {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      white-space: pre-wrap;
+    }
+
+    .popup button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: var(--primary-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>YANSS STORE</h1>
+      <p>Top Up Robux Termurah - Rate 11.000 / 100 Robux</p>
+    </div>
+
+    <div class="input-section">
+      <h2>Masukkan Jumlah Robux</h2>
+      <input type="number" id="robuxInput" min="10" placeholder="Minimal 10 Robux" />
+      <br />
+      <button class="calculate-button" onclick="hitungHarga()">Hitung Harga</button>
+      <p id="hargaOutput"></p>
+    </div>
+
+    <div class="payment-methods" id="paymentMethods">
+      <button class="payment-method" onclick="confirmPayment('QRIS')">QRIS</button>
+      <button class="payment-method" onclick="confirmPayment('DANA')">DANA</button>
+      <button class="payment-method" onclick="confirmPayment('GOPAY')">GOPAY</button>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="popup" id="popup">
+    <p id="popupMessage"></p>
+    <button onclick="closePopup()">Tutup</button>
+  </div>
+
+  <script>
+    let selectedRobux = 0;
+    let selectedPrice = 0;
+
+    function hitungHarga() {
+      const input = document.getElementById('robuxInput');
+      const jumlah = parseInt(input.value);
+
+      if (isNaN(jumlah) || jumlah < 10) {
+        alert("Minimal pembelian adalah 10 Robux.");
+        return;
+      }
+
+      selectedRobux = jumlah;
+      selectedPrice = Math.ceil(jumlah * 11000 / 100);
+
+      document.getElementById('hargaOutput').textContent = `Harga: Rp ${selectedPrice.toLocaleString('id-ID')}`;
+      document.getElementById('paymentMethods').style.display = 'flex';
+    }
+
+    function confirmPayment(method) {
+      const message = `JUMLAH ROBUX YANG AKAN DIBELI ADALAH ${selectedRobux}.
+HARGA: Rp ${selectedPrice.toLocaleString('id-ID')}.
+METODE PEMBAYARAN YANG DIPILIH ADALAH ${method}.
+
+SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
+      document.getElementById('popupMessage').textContent = message;
+      document.getElementById('popupOverlay').style.display = 'block';
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popupOverlay').style.display = 'none';
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
