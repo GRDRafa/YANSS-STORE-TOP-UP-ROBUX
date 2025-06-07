@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YANSS STORE - Top Up Robux Termurah</title>
   <style>
+    /* Gaya yang sudah ada */
     :root {
       --primary: #2563eb;
       --primary-hover: #1e40af;
@@ -34,6 +35,19 @@
       color: white;
       border-radius: var(--radius);
       margin-bottom: 2rem;
+    }
+
+    .welcome-section {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1rem;
+      background: var(--bg-lighter);
+      border-radius: var(--radius);
+    }
+
+    .welcome-section h2 {
+      margin: 0;
+      color: var(--primary);
     }
 
     .input-section {
@@ -131,6 +145,36 @@
     .popup button:hover {
       background: var(--primary-hover);
     }
+
+    /* Gaya untuk tab baru */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .tab {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      background: var(--primary-hover);
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -138,6 +182,11 @@
     <div class="header">
       <h1>YANSS STORE</h1>
       <p>Top Up Robux Termurah - Rate 11.000 / 100 Robux</p>
+    </div>
+
+    <div class="welcome-section">
+      <h2>SELAMAT DATANG DI YANSS STORE</h2>
+      <p>SILAKAN PENCET BUY ROBUX.</p>
     </div>
 
     <div class="input-section">
@@ -152,6 +201,33 @@
       <button class="payment-method" onclick="confirmPayment('QRIS')">QRIS</button>
       <button class="payment-method" onclick="confirmPayment('DANA')">DANA</button>
       <button class="payment-method" onclick="confirmPayment('GOPAY')">GOPAY</button>
+    </div>
+
+    <!-- Tab Cara Pembelian dan Testimoni -->
+    <div class="tabs">
+      <div class="tab" onclick="showTab('caraPembelian')">Cara Pembelian</div>
+      <div class="tab" onclick="showTab('testimoni')">Testimoni</div>
+      <div class="tab" onclick="showTab('whatsapp')">Kontak Admin</div>
+    </div>
+
+    <div class="tab-content" id="caraPembelian">
+      <h3>Cara Pembelian</h3>
+      <ol>
+        <li>Pertama kalian akan disuruh membuat gamepass.</li>
+        <li>Setelah membuat gamepass atur harga yang disuruh admin.</li>
+        <li>Setelah mengatur harga pastikan enable regionalnya mati.</li>
+        <li>Video tutorial: <a href="https://vt.tiktok.com/ZSkANYJU9/" target="_blank">Tonton di TikTok</a></li>
+      </ol>
+    </div>
+
+    <div class="tab-content" id="testimoni">
+      <h3>Testimoni</h3>
+      <p>Untuk testimoni, silakan kunjungi saluran WhatsApp kami: <a href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x" target="_blank">Saluran WhatsApp</a></p>
+    </div>
+
+    <div class="tab-content" id="whatsapp">
+      <h3>Kontak Admin</h3>
+      <p>Anda dapat menghubungi admin melalui WhatsApp di nomor: <strong>+62 895-2548-6786</strong></p>
     </div>
   </div>
 
@@ -195,6 +271,14 @@ SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
     function closePopup() {
       document.getElementById('popupOverlay').style.display = 'none';
       document.getElementById('popup').style.display = 'none';
+    }
+
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
     }
   </script>
 </body>
