@@ -1,0 +1,38 @@
+<button onclick="bukaLink()">Kunjungi YANSS STORE</button>
+
+<script>
+  function bukaLink() {
+    window.location.href = "https://example.com/yanss-store";
+  }
+</script>
+<script>
+  function bukaLink() {
+    window.open("https://example.com", "_blank"); // Ganti dengan link tujuan
+  }
+</script>
+<script>
+  function hubungiAdmin() {
+    const nomor = "6281234567890"; // Ganti dengan nomor admin
+    const pesan = encodeURIComponent("Halo Admin, saya ingin top up Robux.");
+    const url = `https://wa.me/${nomor}?text=${pesan}`;
+    window.open(url, "_blank");
+  }
+</script>
+<button onclick="hubungiAdmin()">Chat Admin via WA</button>
+<script>
+  function tampilkanPopup(pesan) {
+    alert(pesan);
+  }
+</script>
+<button onclick="tampilkanPopup('Selamat datang di YANSS STORE!')">Tampilkan Pesan</button>
+<script>
+  function validasiRobux() {
+    const robux = parseInt(document.getElementById("robuxInput").value);
+    if (isNaN(robux) || robux < 10) {
+      alert("Minimal pembelian adalah 10 Robux.");
+      return false;
+    }
+    alert(`Kamu akan membeli ${robux} Robux.`);
+    return true;
+  }
+</script>
