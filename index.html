@@ -1,285 +1,1147 @@
-<!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>YANSS STORE - Top Up Robux Termurah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+   rel="stylesheet"
+  />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+   rel="stylesheet"
+  />
   <style>
-    /* Gaya yang sudah ada */
-    :root {
-      --primary: #2563eb;
-      --primary-hover: #1e40af;
-      --bg-light: #f8fafc;
-      --bg-lighter: #e2e8f0;
-      --text-dark: #1e293b;
-      --radius: 12px;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
-      color: var(--text-dark);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .header {
-      text-align: center;
-      padding: 2rem;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--radius);
-      margin-bottom: 2rem;
-    }
-
-    .welcome-section {
-      text-align: center;
-      margin: 2rem 0;
-      padding: 1rem;
-      background: var(--bg-lighter);
-      border-radius: var(--radius);
-    }
-
-    .welcome-section h2 {
-      margin: 0;
-      color: var(--primary);
-    }
-
-    .input-section {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    input[type="number"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 200px;
-      border: 2px solid var(--bg-lighter);
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .calculate-button {
-      background: var(--primary);
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .calculate-button:hover {
-      background: var(--primary-hover);
-    }
-
-    .payment-methods {
-      display: none;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-
-    .payment-method {
-      background: var(--primary);
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .payment-method:hover {
-      background: var(--primary-hover);
-    }
-
-    .popup-overlay, .popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-    }
-
-    .popup-overlay {
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(3px);
-    }
-
-    .popup {
-      background: white;
-      width: 90%;
-      max-width: 400px;
-      margin: auto;
-      padding: 1.5rem;
-      border-radius: 10px;
-      text-align: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-    }
-
-    .popup p {
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      white-space: pre-wrap;
-    }
-
-    .popup button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .popup button:hover {
-      background: var(--primary-hover);
-    }
-
-    /* Gaya untuk tab baru */
-    .tabs {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-
-    .tab {
-      background: var(--primary);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin: 0 10px;
-      cursor: pointer;
-    }
-
-    .tab:hover {
-      background: var(--primary-hover);
-    }
-
-    .tab-content {
-      display: none;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .active {
-      display: block;
-    }
+   body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+    min-height: 100vh;
+    margin: 0;
+    color: #1e293b;
+  }
+  /* Scrollbar for chat */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #2563eb;
+    border-radius: 10px;
+  }
+  /* Chat bubble styles */
+  .chat-bubble {
+    max-width: 80%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  .chat-user {
+    background-color: #2563eb;
+    color: white;
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+  }
+  .chat-bot {
+    background-color: #e0e7ff;
+    color: #1e293b;
+    border-bottom-left-radius: 0;
+    align-self: flex-start;
+  }
+  /* Smooth input number arrows removal for better UI */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
   </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>YANSS STORE</h1>
-      <p>Top Up Robux Termurah - Rate 11.000 / 100 Robux</p>
+ </head>
+ <body class="flex flex-col min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+   <div
+    class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+   >
+    <a class="flex items-center space-x-3" href="/">
+     <img
+      alt="Logo Roblox style letter R in red and white"
+      class="h-12 w-12 rounded-md shadow-md"
+      height="48"
+      src="https://storage.googleapis.com/a1aa/image/36f74a0e-e967-4705-aeea-339e6ada3bd9.jpg"
+      width="48"
+     />
+     <span class="text-2xl font-extrabold text-red-600 select-none"
+      >YANSS STORE</span
+     >
+    </a>
+    <ul class="hidden md:flex space-x-8 font-semibold text-gray-700">
+     <li>
+      <a class="hover:text-red-600 transition" href="/">Beranda</a>
+     </li>
+     <li>
+      <a
+       class="text-red-600 border-b-2 border-red-600 pb-1 font-bold"
+       href="/topup"
+       >Top Up Robux</a
+      >
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#caraPembelian"
+       >Cara Pembelian</a
+      >
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#testimoni">Testimoni</a>
+     </li>
+     <li>
+      <a class="hover:text-red-600 transition" href="#kontak">Kontak</a>
+     </li>
+    </ul>
+    <button
+     aria-label="Toggle menu"
+     class="md:hidden text-red-600 focus:outline-none focus:ring-2 focus:ring-red-600"
+     id="mobileMenuBtn"
+    >
+     <i class="fas fa-bars fa-lg"></i>
+    </button>
+   </div>
+   <div
+    class="hidden md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-3"
+    id="mobileMenu"
+   >
+    <a
+     class="block text-gray-700 font-semibold hover:text-red-600"
+     href="/"
+     >Beranda</a
+    >
+    <a
+     class="block text-red-600 font-bold border-l-4 border-red-600 pl-3"
+     href="/topup"
+     >Top Up Robux</a
+    >
+    <a
+     class="block text-gray-700 font-semibold hover:text-red-600"
+     href="#caraPembelian"
+     >Cara Pembelian</a
+    >
+    <a
+     class="block text-gray-700 font-semibold hover:text-red-600"
+     href="#testimoni"
+     >Testimoni</a
+    >
+    <a
+     class="block text-gray-700 font-semibold hover:text-red-600"
+     href="#kontak"
+     >Kontak</a
+    >
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <header
+   class="bg-red-50 py-16 px-6 text-center relative overflow-hidden"
+   aria-label="Hero section with Roblox avatar and call to action"
+  >
+   <img
+    alt="Roblox avatar character wearing headset and gaming gear, smiling and holding Robux coins"
+    class="absolute top-0 right-0 opacity-20 max-w-xs hidden md:block"
+    height="200"
+    src="https://storage.googleapis.com/a1aa/image/b2b36047-06e8-42c9-d864-4885812d649a.jpg"
+    width="200"
+   />
+   <h1
+    class="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 drop-shadow-md"
+   >
+    Top Up Robux Termurah &amp; Terpercaya
+   </h1>
+   <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+    Dapatkan Robux dengan harga terbaik dan proses cepat. Aman, mudah, dan
+    didukung oleh layanan pelanggan 24/7.
+   </p>
+   <a
+    class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition"
+    href="#topupSection"
+    >Beli Robux Sekarang</a
+   >
+  </header>
+  <!-- Main Content -->
+  <main class="flex-grow max-w-5xl mx-auto px-6 py-12" id="topupSection">
+   <!-- Top Up Section -->
+   <section
+    class="bg-white rounded-2xl shadow-lg p-8 mb-12"
+    aria-label="Form top up Robux"
+   >
+    <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
+     Masukkan Jumlah Robux
+    </h2>
+    <div class="flex flex-col items-center">
+     <input
+      aria-label="Input jumlah Robux"
+      class="w-64 px-5 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-lg mb-4"
+      id="robuxInput"
+      min="10"
+      placeholder="Minimal 10 Robux"
+      type="number"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      autocomplete="off"
+      oninput="validateInput(this); autoCalculatePrice();"
+     />
+     <p id="inputError" class="text-red-600 font-semibold mb-2 hidden"></p>
+     <button
+      aria-label="Hitung harga"
+      class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-10 rounded-xl shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      id="calculateBtn"
+      disabled
+      onclick="hitungHarga()"
+      type="button"
+     >
+      Hitung Harga
+     </button>
+     <p
+      class="mt-5 text-2xl font-extrabold text-gray-800 min-h-[2.5rem]"
+      id="hargaOutput"
+      aria-live="polite"
+     ></p>
     </div>
-
-    <div class="welcome-section">
-      <h2>SELAMAT DATANG DI YANSS STORE</h2>
-      <p>SILAKAN PENCET BUY ROBUX.</p>
+    <div
+     class="hidden mt-10 flex justify-center gap-10 flex-wrap"
+     id="paymentMethods"
+     aria-label="Metode pembayaran"
+    >
+     <button
+      aria-label="Bayar dengan QRIS"
+      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
+      onclick="confirmPayment('QRIS')"
+     >
+      <img
+       alt="Logo QRIS payment method, black QR code icon on white background"
+       class="mb-3"
+       height="80"
+       src="https://storage.googleapis.com/a1aa/image/9354fd3c-ce7a-48ef-c015-b6cfbb6f786b.jpg"
+       width="80"
+      />
+      QRIS
+     </button>
+     <button
+      aria-label="Bayar dengan DANA"
+      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
+      onclick="confirmPayment('DANA')"
+     >
+      <img
+       alt="Logo DANA payment method, blue wallet icon on white background"
+       class="mb-3"
+       height="80"
+       src="https://storage.googleapis.com/a1aa/image/15aa8aa9-bed3-424a-76ad-206700716e9f.jpg"
+       width="80"
+      />
+      DANA
+     </button>
+     <button
+      aria-label="Bayar dengan GOPAY"
+      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
+      onclick="confirmPayment('GOPAY')"
+     >
+      <img
+       alt="Logo GOPAY payment method, green mobile wallet icon on white background"
+       class="mb-3"
+       height="80"
+       src="https://storage.googleapis.com/a1aa/image/aaf6d832-2620-498b-e8f6-f701c57a141f.jpg"
+       width="80"
+      />
+      GOPAY
+     </button>
     </div>
-
-    <div class="input-section">
-      <h2>Masukkan Jumlah Robux</h2>
-      <input type="number" id="robuxInput" min="10" placeholder="Minimal 10 Robux" />
+   </section>
+   <!-- Tabs Section -->
+   <section class="max-w-4xl mx-auto">
+    <div
+     aria-label="Informasi tambahan"
+     class="flex justify-center space-x-6 mb-8 flex-wrap"
+     role="tablist"
+    >
+     <button
+      aria-controls="caraPembelian"
+      aria-selected="true"
+      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+      data-tab="caraPembelian"
+      id="tab-caraPembelian"
+      role="tab"
+      tabindex="0"
+     >
+      Cara Pembelian
+     </button>
+     <button
+      aria-controls="testimoni"
+      aria-selected="false"
+      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+      data-tab="testimoni"
+      id="tab-testimoni"
+      role="tab"
+      tabindex="-1"
+     >
+      Testimoni
+     </button>
+     <button
+      aria-controls="kontak"
+      aria-selected="false"
+      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+      data-tab="kontak"
+      id="tab-kontak"
+      role="tab"
+      tabindex="-1"
+     >
+      Kontak Admin
+     </button>
+    </div>
+    <div
+     aria-labelledby="tab-caraPembelian"
+     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto"
+     id="caraPembelian"
+     role="tabpanel"
+    >
+     <h3 class="text-2xl font-bold text-red-600 mb-5">Cara Pembelian</h3>
+     <ol class="list-decimal list-inside space-y-3 text-lg">
+      <li>Buat gamepass di Roblox sesuai instruksi admin.</li>
+      <li>Atur harga gamepass sesuai arahan admin.</li>
+      <li>
+       Pastikan fitur enable regional dimatikan agar pembelian berhasil.
+      </li>
+      <li>
+       Video tutorial lengkap:
+       <a
+        class="text-red-600 underline hover:text-red-800"
+        href="https://vt.tiktok.com/ZSkANYJU9/"
+        rel="noopener noreferrer"
+        target="_blank"
+       >
+        Tonton di TikTok
+       </a>
+      </li>
+     </ol>
+    </div>
+    <div
+     aria-labelledby="tab-testimoni"
+     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden"
+     id="testimoni"
+     role="tabpanel"
+    >
+     <h3 class="text-2xl font-bold text-red-600 mb-5">Testimoni</h3>
+     <p class="text-lg leading-relaxed">
+      "Pelayanan cepat dan harga sangat bersahabat! Saya sangat puas dengan
+      YANSS STORE." – <strong>Rizky</strong>
       <br />
-      <button class="calculate-button" onclick="hitungHarga()">Hitung Harga</button>
-      <p id="hargaOutput"></p>
+      <br />
+      "Proses top up mudah dan admin sangat responsif. Recommended banget!" –
+      <strong>Sari</strong>
+      <br />
+      <br />
+      Untuk testimoni lebih lengkap, kunjungi saluran WhatsApp kami:
+      <a
+       class="text-red-600 underline hover:text-red-800"
+       href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x"
+       rel="noopener noreferrer"
+       target="_blank"
+      >
+       Saluran WhatsApp
+      </a>
+     </p>
     </div>
-
-    <div class="payment-methods" id="paymentMethods">
-      <button class="payment-method" onclick="confirmPayment('QRIS')">QRIS</button>
-      <button class="payment-method" onclick="confirmPayment('DANA')">DANA</button>
-      <button class="payment-method" onclick="confirmPayment('GOPAY')">GOPAY</button>
+    <div
+     aria-labelledby="tab-kontak"
+     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden"
+     id="kontak"
+     role="tabpanel"
+    >
+     <h3 class="text-2xl font-bold text-red-600 mb-5">Kontak Admin</h3>
+     <p class="text-lg">
+      Anda dapat menghubungi admin melalui WhatsApp di nomor:
+      <br />
+      <strong class="text-red-600 text-xl">+62 895-2548-6786</strong>
+     </p>
+     <a
+      class="inline-flex items-center mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold shadow-lg transition duration-300"
+      href="https://wa.me/6289525486786"
+      rel="noopener noreferrer"
+      target="_blank"
+     >
+      <i class="fab fa-whatsapp fa-lg mr-3"></i> Chat Admin via WhatsApp
+     </a>
     </div>
-
-    <!-- Tab Cara Pembelian dan Testimoni -->
-    <div class="tabs">
-      <div class="tab" onclick="showTab('caraPembelian')">Cara Pembelian</div>
-      <div class="tab" onclick="showTab('testimoni')">Testimoni</div>
-      <div class="tab" onclick="showTab('whatsapp')">Kontak Admin</div>
+   </section>
+   <!-- AI Chatbot Section -->
+   <section
+    class="max-w-4xl mx-auto mt-16 bg-white rounded-2xl shadow-lg p-8"
+    aria-label="Bantuan AI - Tanya Kami"
+   >
+    <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
+     Bantuan AI - Tanya Kami
+    </h2>
+    <div
+     class="flex flex-col space-y-3 h-96 overflow-y-auto border border-gray-300 rounded-xl p-4 bg-gray-50"
+     id="chatContainer"
+     role="log"
+     aria-live="polite"
+     aria-atomic="true"
+    >
+     <div class="chat-bubble chat-bot">
+      Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang
+      top up Robux?
+     </div>
     </div>
-
-    <div class="tab-content" id="caraPembelian">
-      <h3>Cara Pembelian</h3>
-      <ol>
-        <li>Pertama kalian akan disuruh membuat gamepass.</li>
-        <li>Setelah membuat gamepass atur harga yang disuruh admin.</li>
-        <li>Setelah mengatur harga pastikan enable regionalnya mati.</li>
-        <li>Video tutorial: <a href="https://vt.tiktok.com/ZSkANYJU9/" target="_blank">Tonton di TikTok</a></li>
-      </ol>
+    <form
+     aria-label="Form chat dengan YanssBot"
+     class="mt-4 flex space-x-3"
+     id="chatForm"
+    >
+     <input
+      aria-label="Input pertanyaan"
+      autocomplete="off"
+      class="flex-grow border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-600"
+      id="chatInput"
+      placeholder="Tulis pertanyaanmu di sini..."
+      required=""
+      type="text"
+     />
+     <button
+      aria-label="Kirim pertanyaan"
+      class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 rounded-xl transition duration-300"
+      type="submit"
+     >
+      Kirim
+     </button>
+    </form>
+   </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-300 mt-16 py-8">
+   <div
+    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm space-y-4 md:space-y-0"
+   >
+    <p>© 2024 YANSS STORE. All rights reserved.</p>
+    <div class="flex space-x-6">
+     <a
+      aria-label="Facebook"
+      class="hover:text-red-600 transition"
+      href="https://facebook.com"
+      target="_blank"
+     >
+      <i class="fab fa-facebook fa-lg"></i>
+     </a>
+     <a
+      aria-label="Twitter"
+      class="hover:text-red-600 transition"
+      href="https://twitter.com"
+      target="_blank"
+     >
+      <i class="fab fa-twitter fa-lg"></i>
+     </a>
+     <a
+      aria-label="Instagram"
+      class="hover:text-red-600 transition"
+      href="https://instagram.com"
+      target="_blank"
+     >
+      <i class="fab fa-instagram fa-lg"></i>
+     </a>
+     <a
+      aria-label="YouTube"
+      class="hover:text-red-600 transition"
+      href="https://youtube.com"
+      target="_blank"
+     >
+      <i class="fab fa-youtube fa-lg"></i>
+     </a>
     </div>
-
-    <div class="tab-content" id="testimoni">
-      <h3>Testimoni</h3>
-      <p>Untuk testimoni, silakan kunjungi saluran WhatsApp kami: <a href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x" target="_blank">Saluran WhatsApp</a></p>
-    </div>
-
-    <div class="tab-content" id="whatsapp">
-      <h3>Kontak Admin</h3>
-      <p>Anda dapat menghubungi admin melalui WhatsApp di nomor: <strong>+62 895-2548-6786</strong></p>
-    </div>
+   </div>
+  </footer>
+  <!-- Popup Modal -->
+  <div
+   class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm hidden z-50"
+   id="popupOverlay"
+  ></div>
+  <div
+   aria-labelledby="popupMessage"
+   aria-modal="true"
+   class="fixed inset-0 flex items-center justify-center p-4 z-50 hidden"
+   id="popup"
+   role="dialog"
+  >
+   <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-lg">
+    <p
+     class="whitespace-pre-wrap font-semibold mb-6 text-gray-900"
+     id="popupMessage"
+    ></p>
+    <button
+     class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-xl transition duration-300"
+     onclick="closePopup()"
+    >
+     Tutup
+    </button>
+   </div>
   </div>
-
-  <div class="popup-overlay" id="popupOverlay"></div>
-  <div class="popup" id="popup">
-    <p id="popupMessage"></p>
-    <button onclick="closePopup()">Tutup</button>
-  </div>
-
   <script>
-    let selectedRobux = 0;
-    let selectedPrice = 0;
+   // Mobile menu toggle
+   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+   const mobileMenu = document.getElementById("mobileMenu");
+   mobileMenuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+   });
 
-    function hitungHarga() {
-      const input = document.getElementById('robuxInput');
-      const jumlah = parseInt(input.value);
+   // Variables for selected Robux and price
+   let selectedRobux = 0;
+   let selectedPrice = 0;
 
-      if (isNaN(jumlah) || jumlah < 10) {
-        alert("Minimal pembelian adalah 10 Robux.");
-        return;
-      }
-
-      selectedRobux = jumlah;
-      selectedPrice = Math.ceil(jumlah * 11000 / 100);
-
-      document.getElementById('hargaOutput').textContent = `Harga: Rp ${selectedPrice.toLocaleString('id-ID')}`;
-      document.getElementById('paymentMethods').style.display = 'flex';
+   // Validate input and enable/disable button
+   function validateInput(input) {
+    const val = input.value.trim();
+    const errorEl = document.getElementById("inputError");
+    const btn = document.getElementById("calculateBtn");
+    if (!val || isNaN(val) || val.includes(".") || val.includes(",") || +val < 10) {
+     errorEl.textContent = "Masukkan angka bulat minimal 10 Robux.";
+     errorEl.classList.remove("hidden");
+     btn.disabled = true;
+     document.getElementById("hargaOutput").textContent = "";
+     document.getElementById("paymentMethods").classList.add("hidden");
+     return false;
+    } else {
+     errorEl.classList.add("hidden");
+     btn.disabled = false;
+     return true;
     }
+   }
 
-    function confirmPayment(method) {
-      const message = `JUMLAH ROBUX YANG AKAN DIBELI ADALAH ${selectedRobux}.
-HARGA: Rp ${selectedPrice.toLocaleString('id-ID')}.
+   // Calculate price function with rate 11,000 IDR = 100 Robux
+   function hitungHarga() {
+    const input = document.getElementById("robuxInput");
+    if (!validateInput(input)) return;
+
+    const jumlah = Math.floor(Number(input.value));
+    selectedRobux = jumlah;
+    // Rate: Rp 11,000 per 100 Robux
+    // price = (jumlah / 100) * 11000
+    const priceRaw = (jumlah / 100) * 11000;
+    selectedPrice = Math.ceil(priceRaw);
+
+    document.getElementById(
+     "hargaOutput"
+    ).textContent = `Harga: Rp ${selectedPrice.toLocaleString("id-ID")}`;
+    document.getElementById("paymentMethods").classList.remove("hidden");
+    // Scroll to payment methods
+    document.getElementById("paymentMethods").scrollIntoView({ behavior: "smooth" });
+   }
+
+   // New function to auto calculate price on input change
+   function autoCalculatePrice() {
+    const input = document.getElementById("robuxInput");
+    if (!validateInput(input)) {
+     selectedRobux = 0;
+     selectedPrice = 0;
+     document.getElementById("hargaOutput").textContent = "";
+     document.getElementById("paymentMethods").classList.add("hidden");
+     return;
+    }
+    const jumlah = Math.floor(Number(input.value));
+    selectedRobux = jumlah;
+    const priceRaw = (jumlah / 100) * 11000;
+    selectedPrice = Math.ceil(priceRaw);
+    document.getElementById(
+     "hargaOutput"
+    ).textContent = `Harga: Rp ${selectedPrice.toLocaleString("id-ID")}`;
+    document.getElementById("paymentMethods").classList.remove("hidden");
+   }
+
+   // Confirm payment popup
+   function confirmPayment(method) {
+    if (selectedRobux < 10 || selectedPrice <= 0) {
+     alert("Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu.");
+     return;
+    }
+    const message = `JUMLAH ROBUX YANG AKAN DIBELI ADALAH ${selectedRobux}.
+HARGA: Rp ${selectedPrice.toLocaleString("id-ID")}.
 METODE PEMBAYARAN YANG DIPILIH ADALAH ${method}.
 
 SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
-      document.getElementById('popupMessage').textContent = message;
-      document.getElementById('popupOverlay').style.display = 'block';
-      document.getElementById('popup').style.display = 'block';
-    }
+    document.getElementById("popupMessage").textContent = message;
+    document.getElementById("popupOverlay").classList.remove("hidden");
+    document.getElementById("popup").classList.remove("hidden");
+   }
 
-    function closePopup() {
-      document.getElementById('popupOverlay').style.display = 'none';
-      document.getElementById('popup').style.display = 'none';
-    }
+   // Close popup
+   function closePopup() {
+    document.getElementById("popupOverlay").classList.add("hidden");
+    document.getElementById("popup").classList.add("hidden");
+   }
 
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
-    }
+   // Tabs functionality
+   const tabButtons = document.querySelectorAll(".tab-btn");
+   const tabContents = document.querySelectorAll(".tab-content");
+
+   tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+     const target = btn.getAttribute("data-tab");
+
+     tabButtons.forEach((b) => {
+      b.classList.remove("bg-red-800");
+      b.setAttribute("aria-selected", "false");
+      b.classList.remove("ring-2", "ring-red-600");
+      b.setAttribute("tabindex", "-1");
+     });
+     btn.classList.add("bg-red-800", "ring-2", "ring-red-600");
+     btn.setAttribute("aria-selected", "true");
+     btn.setAttribute("tabindex", "0");
+     btn.focus();
+
+     tabContents.forEach((content) => {
+      if (content.id === target) {
+       content.classList.remove("hidden");
+      } else {
+       content.classList.add("hidden");
+      }
+     });
+    });
+   });
+
+   // Initialize first tab active on load
+   window.addEventListener("DOMContentLoaded", () => {
+    tabButtons[0].classList.add("bg-red-800", "ring-2", "ring-red-600");
+    tabButtons[0].setAttribute("aria-selected", "true");
+    tabButtons[0].setAttribute("tabindex", "0");
+    tabContents[0].classList.remove("hidden");
+   });
+
+   // AI Chatbot simulation
+   const chatContainer = document.getElementById("chatContainer");
+   const chatForm = document.getElementById("chatForm");
+   const chatInput = document.getElementById("chatInput");
+
+   // Simple bot responses
+   const botResponses = {
+    greeting:
+     "Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang top up Robux?",
+    minRobux:
+     "Minimal pembelian adalah 10 Robux. Silakan masukkan jumlah yang valid.",
+    priceInfo: (amount, price) =>
+     `Harga untuk ${amount} Robux adalah Rp ${price.toLocaleString("id-ID")}.`,
+    paymentMethods:
+     "Metode pembayaran yang tersedia: QRIS, DANA, GOPAY. Silakan pilih salah satu setelah menghitung harga.",
+    thanks: "Terima kasih telah menghubungi YANSS STORE! Jika ada pertanyaan lain, silakan tanyakan.",
+    unknown:
+     "Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin.",
+    robuxGamepassLongReply: `Baik! Berikut adalah versi teks balasan **Robux via Gamepass** yang diperluas hingga mendekati **100 paragraf** (dengan gaya informatif, mudah dipahami, dan cocok untuk teks AI/chatbot/web), terbagi menjadi beberapa bagian agar rapi dan sistematis.
+
+---
+
+### 💬 YANSS STORE – Pembelian Robux via Gamepass (Versi Lengkap)
+
+#### 1. Selamat datang di YANSS STORE!
+
+Kami menyediakan layanan pembelian Robux via Gamepass dengan harga terjangkau dan proses yang aman.
+
+#### 2. Apa itu Gamepass?
+
+Gamepass adalah fitur di Roblox yang memungkinkan pemain menjual item khusus di dalam game mereka.
+
+#### 3. Bagaimana cara kerja pembelian Robux via Gamepass?
+
+Kamu akan membuat Gamepass, lalu kami beli menggunakan akun kami. Robux akan masuk ke akun kamu setelah dipotong pajak Roblox dan melewati masa pending.
+
+#### 4. Apakah ini legal?
+
+Ya, metode ini legal dan memanfaatkan fitur resmi dari Roblox.
+
+#### 5. Apakah aman?
+
+100% aman karena kamu tidak perlu memberikan akun Roblox ke kami. Robux tetap masuk ke akun kamu sendiri.
+
+#### 6. Apakah Robux langsung masuk?
+
+Tidak. Robux akan masuk setelah 3–7 hari kerja sesuai sistem pending dari Roblox.
+
+#### 7. Kenapa harus lewat Gamepass?
+
+Karena Roblox tidak memperbolehkan transfer Robux langsung, Gamepass adalah solusi aman yang sesuai dengan sistem Roblox.
+
+#### 8. Apakah semua orang bisa menggunakan layanan ini?
+
+Ya, semua pengguna Roblox bisa menggunakan metode ini selama memiliki akun dan game sendiri.
+
+#### 9. Saya belum punya game, bagaimana?
+
+Kami bisa bantu kamu membuat game dan Gamepass-nya, gratis!
+
+#### 10. Apa syarat minimum pembelian?
+
+Minimum pembelian 10 Robux (Rp1.300).
+
+---
+
+#### 11. Bagaimana cara membuat Gamepass?
+
+Masuk ke Roblox, buka "Create", lalu pilih game kamu dan tambahkan Gamepass.
+
+#### 12. Bagaimana mengatur harga Gamepass?
+
+Setelah membuat Gamepass, buka pengaturannya dan tentukan harga sesuai petunjuk dari admin.
+
+#### 13. Apa itu potongan pajak 30%?
+
+Roblox mengambil 30% dari setiap penjualan. Jadi kalau kamu pasang harga 100 Robux, kamu hanya akan menerima 70 Robux.
+
+#### 14. Bagaimana agar tetap dapat jumlah Robux yang diinginkan?
+
+Kami akan bantu hitung harga Gamepass agar kamu tetap menerima jumlah yang kamu inginkan setelah potongan.
+
+#### 15. Contoh perhitungan sederhana?
+
+Jika ingin 100 Robux, pasang harga Gamepass sekitar 143 Robux (karena 143 - 30% = ±100 Robux diterima).
+
+---
+
+#### 16. Rate di YANSS STORE?
+
+Rate saat ini: Rp11.000 / 100 Robux (via Gamepass).
+
+#### 17. Metode pembayaran apa saja yang diterima?
+
+Kami menerima: Dana, OVO, GoPay, QRIS, BCA, dan lainnya. Tanyakan admin untuk info lengkap.
+
+#### 18. Apakah bisa beli lebih dari 1000 Robux?
+
+Bisa. Kami menerima pesanan hingga puluhan ribu Robux dengan metode Gamepass.
+
+#### 19. Apakah ada diskon untuk pembelian besar?
+
+Tentu, kami sering memberi potongan untuk pembelian besar. Silakan hubungi admin.
+
+#### 20. Apakah ada biaya tambahan?
+
+Tidak ada biaya tersembunyi. Harga sesuai jumlah Robux dan rate yang berlaku.
+
+---
+
+#### 21. Apakah bisa refund?
+
+Tidak bisa, karena Robux akan masuk setelah proses pending dan tidak bisa ditarik kembali.
+
+#### 22. Saya sudah pasang Gamepass, lalu?
+
+Kirim link Gamepass, username Roblox, dan jumlah Robux yang ingin kamu beli ke admin.
+
+#### 23. Apakah saya harus online saat pembelian?
+
+Tidak perlu, cukup pastikan Gamepass kamu aktif dan bisa dibeli publik.
+
+#### 24. Apakah saya akan diberi bukti pembelian?
+
+Ya, kami akan kirim screenshot bukti pembelian Gamepass kamu.
+
+#### 25. Apakah Robux bisa masuk lebih cepat dari 3 hari?
+
+Kadang bisa, tapi rata-rata 3–7 hari sesuai sistem Roblox. Kami tidak bisa mempercepat.
+
+---
+
+*(... dan seterusnya sampai 100 paragraf, mencakup penjelasan detail, panduan membuat Gamepass, cara setting, tips keamanan, FAQ tambahan, contoh nyata transaksi, hingga edukasi seputar sistem ekonomi Roblox)*
+
+---
+
+Apakah Anda ingin saya lanjutkan langsung sisa paragraf 26–100? Atau apakah Anda ingin format khusus, misalnya untuk web (HTML/Markdown), atau teks mentah untuk disalin langsung ke chatbot/WA? Saya bisa bantu susun sesuai kebutuhan.
+Tentu! Berikut kelanjutan paragraf 26–100 dari teks balasan pembelian **Robux via Gamepass** untuk YANSS STORE, melanjutkan dari format sebelumnya:
+
+---
+
+#### 26. Saya belum pernah buat Gamepass, takut salah.
+
+Jangan khawatir! Admin akan pandu kamu step by step sampai berhasil.
+
+#### 27. Apakah Gamepass saya bisa dibeli orang lain selain admin?
+
+Bisa, tapi jangan khawatir. Kami beli duluan sebelum orang lain sempat beli.
+
+#### 28. Bagaimana jika ada yang beli Gamepass saya sebelum admin?
+
+Kami akan bantu atur ulang agar tidak terjadi kerugian. Pastikan harga unik agar tidak menarik pembeli umum.
+
+#### 29. Saya sudah buat Gamepass, apa yang harus saya perhatikan?
+
+Pastikan kamu sudah setting harga dan Gamepass dalam kondisi **public (bisa dibeli)**.
+
+#### 30. Apa perbedaan Gamepass dan Developer Product?
+
+Gamepass bersifat permanen, Developer Product bisa dibeli berkali-kali. Kami hanya menerima Gamepass.
+
+---
+
+#### 31. Apakah Robux saya aman?
+
+Aman 100%, karena Robux masuk ke akun kamu sendiri melalui sistem resmi Roblox.
+
+#### 32. Kenapa saya tidak langsung dapat Robux?
+
+Sistem Roblox memang menggunakan mekanisme pending selama 3–7 hari untuk pembelian item seperti Gamepass.
+
+#### 33. Apakah saya bisa mengecek proses pending?
+
+Ya, kamu bisa cek di akun Roblox kamu melalui tab "Pending Robux" di bagian penghasilan.
+
+#### 34. Bolehkah saya beli untuk teman saya?
+
+Boleh, asalkan kamu kirim data Gamepass milik temanmu dan pastikan dia tahu.
+
+#### 35. Apakah ada bonus Robux?
+
+Kami kadang memberi bonus atau diskon khusus untuk pelanggan setia atau pembelian besar.
+
+---
+
+#### 36. Bisa pesan Robux di luar jam kerja?
+
+Ya, pesanan tetap bisa dikirim. Kami akan proses saat admin online.
+
+#### 37. Admin aktif jam berapa?
+
+Admin aktif setiap hari pukul 08.00–22.00 WIB.
+
+#### 38. Apakah saya bisa beli lewat grup Roblox?
+
+Tidak, kami hanya melayani via Gamepass untuk alasan keamanan dan efisiensi.
+
+#### 39. Berapa lama buat Gamepass?
+
+Biasanya hanya butuh waktu 5–10 menit saja jika sudah punya game.
+
+#### 40. Saya gaptek, bisa dibantu?
+
+Tentu! Admin ramah dan siap membantu kamu dari awal sampai selesai.
+
+---
+
+#### 41. Bagaimana kalau Robux saya tidak masuk?
+
+Tenang, selama Gamepass dibeli, Robux **pasti masuk** setelah masa pending selesai.
+
+#### 42. Apakah saya bisa jual lebih dari 1 Gamepass?
+
+Bisa, untuk pembelian besar, kami bisa beli beberapa Gamepass sekaligus.
+
+#### 43. Bolehkah saya jual Gamepass di game yang bukan milik saya?
+
+Tidak disarankan. Gunakan game milik sendiri agar tidak ada masalah akses.
+
+#### 44. Saya sudah buat Gamepass tapi tidak bisa dibeli.
+
+Cek pengaturan privasi dan pastikan game tidak diatur private.
+
+#### 45. Haruskah saya setting developer exchange atau sejenisnya?
+
+Tidak perlu. Layanan kami tidak membutuhkan fitur dev-ex (penukaran uang).
+
+---
+
+#### 46. Apakah harga bisa nego?
+
+Rate kami tetap, tapi kami terbuka untuk diskon pada pembelian besar.
+
+#### 47. Apakah ini sistem reseller?
+
+Tidak, kami jual langsung ke pengguna. Tapi kami juga menerima reseller, hubungi admin.
+
+#### 48. Saya ingin jadi agen Robux, bisa?
+
+Bisa banget! Hubungi kami untuk info menjadi reseller resmi YANSS STORE.
+
+#### 49. Bagaimana cara mengecek Robux pending?
+
+Masuk ke [roblox.com](https://roblox.com) → klik menu "Create" → klik “Revenue” → pilih “Pending Robux”.
+
+#### 50. Kenapa saya hanya dapat 70 Robux dari 100?
+
+Itu karena pajak 30% dari Roblox, bukan dari kami.
+
+---
+
+#### 51. Apa itu pajak Roblox?
+
+Roblox secara otomatis memotong 30% dari semua hasil penjualan Gamepass/produk untuk pengembang dan sistem.
+
+#### 52. Apakah bisa hindari pajak ini?
+
+Tidak bisa. Ini sistem otomatis dari Roblox dan tidak bisa diubah.
+
+#### 53. Apakah ini sama seperti beli Robux di web Roblox?
+
+Tidak. Ini lebih seperti "menjual" lalu kamu menerima Robux-nya setelah proses berjalan.
+
+#### 54. Bisa beli langsung lewat saya (pembeli)?
+
+Ya, kamu bisa kirim data Gamepass dan bukti transfer. Kami bantu proses semua.
+
+#### 55. Apakah bisa beli Robux via pulsa?
+
+Kami tidak langsung terima pulsa, tapi kamu bisa tukar pulsa ke e-wallet lalu bayar ke kami.
+
+---
+
+#### 56. Berapa maksimal Robux per transaksi?
+
+Kami bisa proses hingga 10.000 Robux atau lebih dalam satu sesi, tergantung stok.
+
+#### 57. Bagaimana jika saya salah pasang harga?
+
+Hubungi admin untuk revisi harga sebelum kami melakukan pembelian.
+
+#### 58. Berapa lama admin proses setelah saya kirim data?
+
+Biasanya hanya butuh 5–15 menit selama jam aktif.
+
+#### 59. Apakah harga Robux akan berubah?
+
+Bisa. Kami sesuaikan dengan harga pasar. Admin akan beri info terbaru jika ada perubahan.
+
+#### 60. Bagaimana saya tahu jumlah Robux yang akan saya terima?
+
+Admin akan bantu hitung sesuai harga Gamepass dan potongan pajak.
+
+---
+
+#### 61. Bisa minta tolong setting Gamepass via Discord?
+
+Tentu, admin juga bisa bantu lewat Discord/Zoom/WA Call jika dibutuhkan.
+
+#### 62. Apakah saya harus menyimpan bukti transaksi?
+
+Ya, simpan bukti transfer dan bukti Gamepass aktif untuk keamanan.
+
+#### 63. Apakah Robux ini bisa dibelikan item Limited?
+
+Bisa, setelah Robux masuk ke akun kamu dan tidak dalam status pending.
+
+#### 64. Bisa gabung pembelian dengan teman?
+
+Boleh. Kami bisa proses pesanan gabungan asal data lengkap.
+
+#### 65. Bagaimana jika saya tidak puas?
+
+Kami selalu berusaha maksimal. Silakan beri masukan, dan kami akan bantu sampai puas.
+
+---
+
+#### 66. Apakah Gamepass bisa dihapus setelah dibeli?
+
+Tidak disarankan. Hapus setelah Robux masuk agar tidak terjadi gangguan sistem.
+
+#### 67. Apakah saya bisa melihat log pembelian?
+
+Ya, di Roblox terdapat history transaksi dan penghasilan dari Gamepass.
+
+#### 68. Apakah Robux bisa hangus kalau akun kena banned?
+
+Bisa. Pastikan kamu tidak melanggar aturan Roblox.
+
+#### 69. Apakah YANSS STORE sudah lama beroperasi?
+
+Ya, kami telah aktif melayani sejak 202X dan dipercaya banyak pengguna.
+
+#### 70. Di mana saya bisa lihat testimoni?
+
+Testimoni tersedia di halaman sosial media kami dan di grup pelanggan.
+
+---
+
+#### 71. Bolehkah saya pakai akun orang tua saya?
+
+Boleh, selama akun Roblox dan e-wallet atas izin orang tua.
+
+#### 72. Apakah ada komunitas atau grup diskusi?
+
+Ya, kami punya grup WhatsApp dan Discord untuk pelanggan.
+
+#### 73. Apakah ini cocok untuk pengguna baru?
+
+Sangat cocok! Bahkan banyak pelanggan kami adalah pemula.
+
+#### 74. Bagaimana jika saya ingin ubah pesanan?
+
+Selama belum dibayar, bisa. Setelah dibayar, pesanan tidak bisa diubah.
+
+#### 75. Apakah saya bisa melihat Robux saya real-time?
+
+Kamu bisa cek melalui akun Roblox kamu di menu penghasilan.
+
+---
+
+#### 76. Saya khawatir ditipu.
+
+Tenang, kami berikan bukti pembelian dan testimoni nyata. Transparansi adalah prioritas kami.
+
+#### 77. Berapa banyak Gamepass yang bisa saya buat?
+
+Tak terbatas. Tapi sebaiknya tidak terlalu banyak untuk menghindari kebingungan.
+
+#### 78. Bolehkah saya pakai sistem lain selain Gamepass?
+
+Untuk saat ini, kami hanya melayani lewat Gamepass.
+
+#### 79. Apakah saya akan dihubungi setelah pembelian?
+
+Kami akan konfirmasi setelah Gamepass berhasil dibeli.
+
+#### 80. Saya ingin pesan sekarang, bagaimana caranya?
+
+Langsung kirim data ke admin:
+
+* Link Gamepass
+* Username Roblox
+* Jumlah Robux
+* Bukti transfer
+
+---
+
+#### 81. Saya ingin Robux untuk beli avatar. Bisa?
+
+Tentu, kamu bebas gunakan Robux untuk item apa saja setelah masuk ke akun.
+
+#### 82. Apakah bisa dibelikan item langsung?
+
+Tidak. Kami hanya jual Robux, bukan item langsung.
+
+#### 83. Bisa bayar cicilan?
+
+Untuk sekarang belum tersedia. Pembayaran full di awal.
+
+#### 84. Apakah Robux bisa ditransfer ke akun lain?
+
+Tidak bisa. Robux yang masuk akan tetap di akun penerima.
+
+#### 85. Bisa pakai akun anak di bawah umur?
+
+Bisa, asal game dan Gamepass aktif serta bisa diatur.
+
+---
+
+#### 86. Bagaimana menjaga akun Roblox tetap aman?
+
+Jangan bagikan password atau PIN ke siapapun, termasuk admin.
+
+#### 87. Apakah admin butuh akses login saya?
+
+Tidak pernah. Kami tidak akan minta login kamu.
+
+#### 88. Apakah layanan ini bisa digunakan setiap hari?
+
+Ya, kami buka setiap hari, 7 hari seminggu.
+
+#### 89. Saya ingin belajar buat game juga. Bisa?
+
+Kami akan buatkan panduan dan link belajar dasar buat pemula.
+
+#### 90. Bagaimana jika saya punya keluhan?
+
+Silakan hubungi admin langsung. Kami selalu terbuka untuk perbaikan layanan.
+
+---
+
+#### 91. Apakah saya harus punya Robux sebelumnya?
+
+Tidak perlu. Kamu bisa mulai dari nol.
+
+#### 92. Apa saja tips agar transaksi lancar?
+
+Pastikan data lengkap, Gamepass aktif, dan bayar sesuai tagihan.
+
+#### 93. Bagaimana kalau saya mau jual Robux?
+
+Kami belum melayani pembelian Robux dari user.
+
+#### 94. Apakah ada batasan usia pengguna?
+
+Tidak, tapi tetap disarankan dengan izin orang tua jika masih di bawah umur.
+
+#### 95. Di mana saya bisa lihat update rate?
+
+Admin akan update lewat Instagram, WhatsApp, dan website kami.
+
+---
+
+#### 96. Apa akun media sosial YANSS STORE?
+
+Kami aktif di Instagram, TikTok, dan WhatsApp. Link tersedia di web.
+
+#### 97. Apakah layanan ini bisa diakses seluruh Indonesia?
+
+Bisa! Kami melayani seluruh wilayah Indonesia tanpa batasan.
+
+#### 98. Apakah Robux dari YANSS STORE bisa dipakai buat DevEx?
+
+Bisa, jika kamu memenuhi syarat dari Roblox (bukan layanan kami).
+
+#### 99. Apakah ada batas pembelian harian?
+
+Tidak ada batasan harian, selama Gamepass bisa kami beli.
+
+#### 100. Terima kasih telah memilih YANSS STORE!
+
+Kami harap pengalaman beli Robux kamu menyenangkan dan memuaskan.
+Hubungi kami kapan saja jika ada pertanyaan. 🎮✨
+
+---
+
+Jika Anda ingin versi ini diformat sebagai HTML, teks chatbot, atau langsung dikonversi ke file dokumen, saya bisa bantu juga. Mau lanjut ke konversi format?`
+   };
+
+   function appendMessage(text, sender) {
+    const div = document.createElement("div");
+    div.classList.add("chat-bubble", sender === "user" ? "chat-user" : "chat-bot");
+    div.textContent = text;
+    chatContainer.appendChild(div);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+   }
+
+   chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const userText = chatInput.value.trim();
+    if (!userText) return;
+    appendMessage(userText, "user");
+    chatInput.value = "";
+    setTimeout(() => {
+     // Simple keyword-based response
+     const lower = userText.toLowerCase();
+     if (lower.includes("minimal") || lower.includes("minimum")) {
+      appendMessage(botResponses.minRobux, "bot");
+     } else if (lower.includes("harga") || lower.includes("price")) {
+      if (selectedRobux > 0 && selectedPrice > 0) {
+       appendMessage(botResponses.priceInfo(selectedRobux, selectedPrice), "bot");
+      } else {
+       appendMessage(
+        "Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu.",
+        "bot"
+       );
+      }
+     } else if (
+      lower.includes("metode") ||
+      lower.includes("bayar") ||
+      lower.includes("payment")
+     ) {
+      appendMessage(botResponses.paymentMethods, "bot");
+     } else if (lower.includes("terima kasih") || lower.includes("thanks")) {
+      appendMessage(botResponses.thanks, "bot");
+     } else if (
+      lower.includes("halo") ||
+      lower.includes("hai") ||
+      lower.includes("hello")
+     ) {
+      appendMessage(botResponses.greeting, "bot");
+     } else if (lower.includes("baik! berikut adalah versi teks balasan robux via gamepass")) {
+      appendMessage(botResponses.robuxGamepassLongReply, "bot");
+     } else {
+      appendMessage(botResponses.unknown, "bot");
+     }
+    }, 1000);
+   });
   </script>
-</body>
+ </body>
 </html>
