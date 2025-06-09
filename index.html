@@ -72,7 +72,8 @@
    }
    /* Hero image animation */
    @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
      transform: translateY(0);
     }
     50% {
@@ -87,7 +88,8 @@
     animation: pulse 2.5s infinite;
    }
    @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
     }
     50% {
@@ -174,7 +176,8 @@
     Top Up Robux Termurah &amp; Terpercaya
    </h1>
    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-    Dapatkan Robux dengan harga terbaik dan proses cepat. Aman, mudah, dan didukung oleh layanan pelanggan 24/7.
+    Dapatkan Robux dengan harga terbaik dan proses cepat. Aman, mudah, dan didukung
+    oleh layanan pelanggan 24/7.
    </p>
    <a class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition btn-pulse" href="#topupSection">
     Beli Robux Sekarang
@@ -212,49 +215,82 @@
      </button>
     </div>
    </section>
-   <!-- Accessories Section -->
-   <section aria-label="Roblox Accessories Showcase" class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+   <!-- Gamepass Section -->
+   <section aria-label="Daftar gamepass Roblox yang dijual" class="bg-white rounded-2xl shadow-lg p-8 mb-12">
     <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
-     Aksesoris Roblox Populer
+     Gamepass Roblox Populer
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-     <div class="flex flex-col items-center bg-red-50 rounded-xl p-4 shadow-md hover:shadow-lg transition">
-      <img alt="Roblox red wizard hat with stars and moon decoration" class="w-32 h-32 object-contain mb-3" height="128" src="https://storage.googleapis.com/a1aa/image/b3ea3e83-2319-4a72-ba69-36d0ee123aaf.jpg" width="128"/>
-      <h3 class="font-semibold text-lg text-red-700">
-       Wizard Hat
-      </h3>
-      <p class="text-sm text-gray-600 mt-1">
-       Topi penyihir merah dengan dekorasi bintang dan bulan.
-      </p>
-     </div>
-     <div class="flex flex-col items-center bg-red-50 rounded-xl p-4 shadow-md hover:shadow-lg transition">
-      <img alt="Roblox futuristic visor helmet with blue glowing lights" class="w-32 h-32 object-contain mb-3" height="128" src="https://storage.googleapis.com/a1aa/image/b0c43d60-a42c-4d69-5802-c329e4ecdfc5.jpg" width="128"/>
-      <h3 class="font-semibold text-lg text-red-700">
-       Visor Helmet
-      </h3>
-      <p class="text-sm text-gray-600 mt-1">
-       Helm futuristik dengan lampu biru menyala.
-      </p>
-     </div>
-     <div class="flex flex-col items-center bg-red-50 rounded-xl p-4 shadow-md hover:shadow-lg transition">
-      <img alt="Roblox golden wings accessory with shiny feathers" class="w-32 h-32 object-contain mb-3" height="128" src="https://storage.googleapis.com/a1aa/image/8b6fea89-69a4-46db-5788-a94f2ae6794b.jpg" width="128"/>
-      <h3 class="font-semibold text-lg text-red-700">
-       Golden Wings
-      </h3>
-      <p class="text-sm text-gray-600 mt-1">
-       Sayap emas berkilau dengan bulu halus.
-      </p>
-     </div>
-     <div class="flex flex-col items-center bg-red-50 rounded-xl p-4 shadow-md hover:shadow-lg transition">
-      <img alt="Roblox black leather jacket with red stripes" class="w-32 h-32 object-contain mb-3" height="128" src="https://storage.googleapis.com/a1aa/image/3d86e347-916e-4d20-36df-a69c164f73e0.jpg" width="128"/>
-      <h3 class="font-semibold text-lg text-red-700">
-       Leather Jacket
-      </h3>
-      <p class="text-sm text-gray-600 mt-1">
-       Jaket kulit hitam dengan garis merah yang keren.
-      </p>
-     </div>
-    </div>
+    <ul class="max-w-3xl mx-auto space-y-6">
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass Grow Garden Roblox, colorful garden with plants and trees" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/432e44d1-044c-43c9-db85-b2b273c8892f.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass Grow Garden
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass untuk akses fitur Grow Garden di Roblox, nikmati pengalaman berkebun yang seru dan interaktif.
+       </p>
+      </div>
+     </li>
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass Dead Rails Roblox, dark train station with rails and spooky atmosphere" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/13857343-1177-4bf7-fae4-d81b28853c09.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass Dead Rails
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass untuk Dead Rails, dapatkan akses ke fitur eksklusif dan kereta khusus di dunia gelap yang menegangkan.
+       </p>
+      </div>
+     </li>
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass Brookhaven Roblox, modern cityscape with houses and cars" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/906178c7-6055-4b6d-142c-96bea0bd21f5.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass Brookhaven
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass untuk Brookhaven, nikmati akses ke rumah, kendaraan, dan fitur premium lainnya.
+       </p>
+      </div>
+     </li>
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass Blox Fruit Roblox, pirate ship and tropical island adventure" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/2f8e2195-b6e1-48f1-001e-7e8972215884.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass Blox Fruit 1
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass pertama untuk Blox Fruit, dapatkan kekuatan dan akses ke area eksklusif.
+       </p>
+      </div>
+     </li>
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass Blox Fruit Roblox, pirate ship and tropical island adventure" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/2f8e2195-b6e1-48f1-001e-7e8972215884.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass Blox Fruit 2
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass kedua untuk Blox Fruit, tingkatkan kemampuan dan akses ke fitur premium.
+       </p>
+      </div>
+     </li>
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition">
+      <img alt="Gamepass CDID Roblox, futuristic digital interface with neon lights" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" src="https://storage.googleapis.com/a1aa/image/1d1b4020-0eec-44f9-5e54-84efb1a696a9.jpg" width="128"/>
+      <div>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        Gamepass CDID
+       </h3>
+       <p class="text-gray-700 text-base">
+        Gamepass CDID dengan fitur eksklusif dan akses khusus di Roblox.
+       </p>
+      </div>
+     </li>
+     <li class="bg-red-100 rounded-xl p-5 shadow-md text-center text-red-700 font-semibold text-lg">
+      DAN APAPUN YANG BISA DI GIFT
+     </li>
+    </ul>
    </section>
    <!-- Tabs Section -->
    <section class="max-w-4xl mx-auto">
@@ -296,8 +332,8 @@
       Testimoni
      </h3>
      <p class="text-lg leading-relaxed">
-      "Pelayanan cepat dan harga sangat bersahabat! Saya sangat puas dengan
-      YANSS STORE." –
+      "Pelayanan cepat dan harga sangat bersahabat! Saya sangat puas dengan YANSS
+      STORE." –
       <strong>
        Rizky
       </strong>
@@ -340,8 +376,8 @@
     </h2>
     <div aria-atomic="true" aria-live="polite" class="flex flex-col space-y-3 h-96 overflow-y-auto border border-gray-300 rounded-xl p-4 bg-gray-50" id="chatContainer" role="log">
      <div class="chat-bubble chat-bot">
-      Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang
-      top up Robux? Tanyakan apa saja, saya siap membantu!
+      Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang top up
+      Robux? Tanyakan apa saja, saya siap membantu!
      </div>
     </div>
     <form aria-label="Form chat dengan YanssBot" class="mt-4 flex space-x-3" id="chatForm">
@@ -428,15 +464,15 @@
     }
    }
 
-   // Calculate price function with rate 11,500 IDR = 100 Robux
+   // Calculate price function with rate 11,820 IDR = 100 Robux
    function hitungHarga() {
     const input = document.getElementById("robuxInput");
     if (!validateInput(input)) return;
 
     const jumlah = Math.floor(Number(input.value));
     selectedRobux = jumlah;
-    // Rate: Rp 11,500 per 100 Robux
-    const priceRaw = (jumlah / 100) * 11500;
+    // Rate: Rp 11,820 per 100 Robux
+    const priceRaw = (jumlah / 100) * 11820;
     selectedPrice = Math.ceil(priceRaw);
 
     document.getElementById(
@@ -459,7 +495,7 @@
     }
     const jumlah = Math.floor(Number(input.value));
     selectedRobux = jumlah;
-    const priceRaw = (jumlah / 100) * 11500;
+    const priceRaw = (jumlah / 100) * 11820;
     selectedPrice = Math.ceil(priceRaw);
     document.getElementById(
      "hargaOutput"
@@ -545,7 +581,7 @@ SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
      "🙏 Terima kasih telah menghubungi YANSS STORE! Jika ada pertanyaan lain, silakan tanyakan kapan saja.",
     unknown:
      "🤔 Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin untuk bantuan lebih lanjut.",
-    robuxGamepassLongReply: `Baik! Berikut adalah penjelasan lengkap tentang pembelian Robux via Gamepass di YANSS STORE. Jika ingin detail lebih lanjut, saya siap membantu! 😊`
+    robuxGamepassLongReply: `Baik! Berikut adalah penjelasan lengkap tentang pembelian Robux via Gamepass di YANSS STORE. Jika ingin detail lebih lanjut, saya siap membantu! 😊`,
    };
 
    function appendMessage(text, sender) {
