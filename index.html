@@ -510,15 +510,15 @@
     }
    }
 
-   // Calculate price function with rate 12,300 IDR = 100 Robux
+   // Calculate price function with rate 12,800 IDR = 100 Robux
    function hitungHarga() {
     const input = document.getElementById("robuxInput");
     if (!validateInput(input)) return;
 
     const jumlah = Math.floor(Number(input.value));
     selectedRobux = jumlah;
-    // Rate: Rp 12,300 per 100 Robux
-    const priceRaw = (jumlah / 100) * 12300;
+    // Rate: Rp 12,800 per 100 Robux
+    const priceRaw = (jumlah / 100) * 12800;
     selectedPrice = Math.ceil(priceRaw);
 
     document.getElementById(
@@ -541,7 +541,7 @@
     }
     const jumlah = Math.floor(Number(input.value));
     selectedRobux = jumlah;
-    const priceRaw = (jumlah / 100) * 12300;
+    const priceRaw = (jumlah / 100) * 12800;
     selectedPrice = Math.ceil(priceRaw);
     document.getElementById(
      "hargaOutput"
