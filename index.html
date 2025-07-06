@@ -1,17 +1,14 @@
 <html lang="id">
  <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>YANSS STORE - Top Up Robux Termurah</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-   rel="stylesheet"
-  />
-  <link
-   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
-   rel="stylesheet"
-  />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   YANSS STORE - Top Up Robux Termurah
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
   <style>
    body {
     font-family: "Inter", sans-serif;
@@ -380,708 +377,580 @@
     margin-top: 0.25rem;
     user-select: none;
    }
+   /* New badge promo style */
+   .badge-promo {
+    background: #f68b1e;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: 600;
+    animation: pulse 1.2s ease-in-out infinite;
+    user-select: none;
+   }
+   @keyframes pulse {
+    0%,
+    100% {
+     transform: scale(1);
+    }
+    50% {
+     transform: scale(1.05);
+    }
+   }
+   /* Price display fade */
+   #harga-final {
+    transition: opacity 0.3s ease;
+   }
+   /* Checkout button style */
+   .cta-btn {
+    background: linear-gradient(90deg, #f68b1e, #e65c00);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    text-align: center;
+   }
+   .cta-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   }
+   .cta-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+   }
+   /* Payment info container */
+   .payment-info {
+    margin-top: 1rem;
+    text-align: center;
+    color: #444;
+    font-size: 0.875rem;
+    user-select: none;
+   }
+   .payment-info img {
+    vertical-align: middle;
+    margin: 0 8px 4px 8px;
+    transition: transform 0.3s;
+    cursor: default;
+   }
+   .payment-info img:hover {
+    transform: scale(1.1);
+   }
+   /* Responsive adjustments */
+   @media (max-width: 768px) {
+    .container {
+     flex-direction: column;
+    }
+    .badge-promo {
+     font-size: 0.9rem;
+    }
+   }
   </style>
  </head>
  <body class="flex flex-col min-h-screen">
   <!-- Navbar -->
-  <nav
-   class="bg-white sticky top-0 z-50 transition-shadow duration-300"
-   id="navbar"
-   role="navigation"
-  >
-   <div
-    class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
-   >
+  <nav class="bg-white sticky top-0 z-50 transition-shadow duration-300" id="navbar" role="navigation">
+   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <a class="flex items-center space-x-3" href="/">
-     <img
-      alt="Logo Roblox style letter R in red and white"
-      class="h-12 w-12 rounded-md shadow-md"
-      height="48"
-      loading="lazy"
-      src="https://storage.googleapis.com/a1aa/image/53516f4a-cd65-4624-b6cc-3841b255e7f9.jpg"
-      width="48"
-     />
+     <img alt="Logo Roblox style letter R in red and white" class="h-12 w-12 rounded-md shadow-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/53516f4a-cd65-4624-b6cc-3841b255e7f9.jpg" width="48"/>
      <span class="text-2xl font-extrabold text-red-600 select-none">
       YANSS STORE
      </span>
     </a>
     <ul class="hidden md:flex space-x-8 font-semibold text-gray-700">
      <li>
-      <a class="hover:text-red-600 transition" href="/">Beranda</a>
+      <a class="hover:text-red-600 transition" href="/">
+       Beranda
+      </a>
      </li>
      <li>
-      <a
-       class="text-red-600 border-b-2 border-red-600 pb-1 font-bold"
-       href="/topup"
-       >Top Up Robux</a
-      >
+      <a class="text-red-600 border-b-2 border-red-600 pb-1 font-bold" href="/topup">
+       Top Up Robux
+      </a>
      </li>
      <li>
-      <a class="hover:text-red-600 transition" href="#caraPembelian"
-       >Cara Pembelian</a
-      >
+      <a class="hover:text-red-600 transition" href="#caraPembelian">
+       Cara Pembelian
+      </a>
      </li>
      <li>
-      <a class="hover:text-red-600 transition" href="#testimoni">Testimoni</a>
+      <a class="hover:text-red-600 transition" href="#testimoni">
+       Testimoni
+      </a>
      </li>
      <li>
-      <a class="hover:text-red-600 transition" href="#kontak">Kontak</a>
+      <a class="hover:text-red-600 transition" href="#kontak">
+       Kontak
+      </a>
      </li>
     </ul>
-    <button
-     aria-label="Toggle menu"
-     class="md:hidden text-red-600 focus:outline-none focus:ring-2 focus:ring-red-600"
-     id="mobileMenuBtn"
-    >
-     <i class="fas fa-bars fa-lg"></i>
+    <button aria-label="Toggle menu" class="md:hidden text-red-600 focus:outline-none focus:ring-2 focus:ring-red-600" id="mobileMenuBtn">
+     <i class="fas fa-bars fa-lg">
+     </i>
     </button>
    </div>
-   <div
-    class="hidden md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-3"
-    id="mobileMenu"
-   >
-    <a class="block text-gray-700 font-semibold hover:text-red-600" href="/"
-     >Beranda</a
-    >
-    <a
-     class="block text-red-600 font-bold border-l-4 border-red-600 pl-3"
-     href="/topup"
-     >Top Up Robux</a
-    >
-    <a
-     class="block text-gray-700 font-semibold hover:text-red-600"
-     href="#caraPembelian"
-     >Cara Pembelian</a
-    >
-    <a
-     class="block text-gray-700 font-semibold hover:text-red-600"
-     href="#testimoni"
-     >Testimoni</a
-    >
-    <a
-     class="block text-gray-700 font-semibold hover:text-red-600"
-     href="#kontak"
-     >Kontak</a
-    >
+   <div class="hidden md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-3" id="mobileMenu">
+    <a class="block text-gray-700 font-semibold hover:text-red-600" href="/">
+     Beranda
+    </a>
+    <a class="block text-red-600 font-bold border-l-4 border-red-600 pl-3" href="/topup">
+     Top Up Robux
+    </a>
+    <a class="block text-gray-700 font-semibold hover:text-red-600" href="#caraPembelian">
+     Cara Pembelian
+    </a>
+    <a class="block text-gray-700 font-semibold hover:text-red-600" href="#testimoni">
+     Testimoni
+    </a>
+    <a class="block text-gray-700 font-semibold hover:text-red-600" href="#kontak">
+     Kontak
+    </a>
    </div>
   </nav>
-
   <!-- Hero Section -->
-  <header
-   aria-label="Hero section with Roblox avatar and call to action"
-   class="bg-red-50 py-16 px-6 text-center relative overflow-hidden"
-  >
-   <img
-    alt="Roblox avatar character wearing headset and gaming gear, smiling and holding Robux coins"
-    class="absolute top-0 right-0 opacity-25 max-w-xs hidden md:block hero-img-animated"
-    height="220"
-    loading="lazy"
-    src="https://storage.googleapis.com/a1aa/image/a8d67f0b-8859-407c-5453-89ad0e84f356.jpg"
-    width="220"
-   />
-   <h1
-    class="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 drop-shadow-md"
-   >
+  <header aria-label="Hero section with Roblox avatar and call to action" class="bg-red-50 py-16 px-6 text-center relative overflow-hidden">
+   <img alt="Roblox avatar character wearing headset and gaming gear, smiling and holding Robux coins" class="absolute top-0 right-0 opacity-25 max-w-xs hidden md:block hero-img-animated" height="220" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a8d67f0b-8859-407c-5453-89ad0e84f356.jpg" width="220"/>
+   <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 drop-shadow-md">
     Top Up Robux Termurah &amp; Terpercaya
    </h1>
    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
     Dapatkan Robux dengan harga terbaik dan proses cepat. Aman, mudah, dan
     didukung oleh layanan pelanggan 24/7.
    </p>
-   <a
-    class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition btn-pulse"
-    href="#topupSection"
-    >Beli Robux Sekarang</a
-   >
+   <a class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition btn-pulse" href="#topupSection">
+    Beli Robux Sekarang
+   </a>
   </header>
-
   <!-- Main Content -->
   <main class="flex-grow max-w-5xl mx-auto px-6 py-12" id="topupSection">
+   <!-- Promo Badge and Microcopy -->
+   <div class="text-center mb-4">
+    <span class="badge-promo inline-block mb-2">
+     🎉 SPECIAL OFFER! Rp12.950/100 Robux — Feel the savings without paying less!
+    </span>
+    <p class="text-red-600 font-semibold select-none">
+     🔥 Harga sama, tapi terasa lebih murah!
+    </p>
+    <p class="text-gray-700 mt-1 mb-6 select-none">
+     First come, first served—stok terbatas setiap hari!
+    </p>
+   </div>
    <!-- Username Input with Copy -->
-   <div id="usernameContainer" class="fade-in">
-    <label
-     for="usernameInput"
-     class="block mb-2 font-semibold text-red-600 text-lg text-center"
-     >Masukkan Username Roblox Anda</label
-    >
-    <input
-     aria-label="Input username Roblox"
-     autocomplete="off"
-     class="w-full"
-     id="usernameInput"
-     maxlength="20"
-     minlength="3"
-     pattern="^[A-Za-z0-9_]{3,20}$"
-     placeholder="Contoh: Player_123"
-     type="text"
-     spellcheck="false"
-    />
-    <button
-     aria-label="Copy username to clipboard"
-     id="copyUsernameBtn"
-     type="button"
-     title="Salin username"
-    >
-     <i class="fas fa-copy"></i>
+   <div class="fade-in mx-auto max-w-xs" id="usernameContainer">
+    <label class="block mb-2 font-semibold text-red-600 text-lg text-center" for="usernameInput">
+     Masukkan Username Roblox Anda
+    </label>
+    <input aria-label="Input username Roblox" autocomplete="off" class="w-full" id="usernameInput" maxlength="20" minlength="3" pattern="^[A-Za-z0-9_]{3,20}$" placeholder="Contoh: Player_123" spellcheck="false" type="text"/>
+    <button aria-label="Copy username to clipboard" id="copyUsernameBtn" title="Salin username" type="button">
+     <i class="fas fa-copy">
+     </i>
     </button>
    </div>
-
    <!-- Robux Packages Grid -->
-   <section aria-label="Paket Robux" id="robuxPackages" class="fade-in">
-    <div
-     class="package-card"
-     data-robux="100"
-     data-price="12900"
-     tabindex="0"
-     role="button"
-     aria-pressed="false"
-    >
-     <div class="robux-icon" aria-hidden="true">
-      <i class="fas fa-coins"></i>
+   <section aria-label="Paket Robux" class="fade-in" id="robuxPackages">
+    <div aria-pressed="false" class="package-card" data-price="12950" data-robux="100" role="button" tabindex="0">
+     <div aria-hidden="true" class="robux-icon">
+      <i class="fas fa-coins">
+      </i>
      </div>
-     <h4>100 Robux</h4>
-     <div class="price">Rp 12.900</div>
-     <div class="stars" aria-label="Rating 4 dari 5 bintang">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star-half-alt"></i>
+     <h4>
+      100 Robux
+     </h4>
+     <div class="price">
+      Rp 12.950
      </div>
-     <button class="buy-now-btn" type="button">Buy Now</button>
+     <div aria-label="Rating 4 dari 5 bintang" class="stars">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star-half-alt">
+      </i>
+     </div>
+     <button class="buy-now-btn" type="button">
+      Buy Now
+     </button>
     </div>
-    <div
-     class="package-card best-seller"
-     data-robux="200"
-     data-price="25800"
-     tabindex="0"
-     role="button"
-     aria-pressed="false"
-    >
-     <div class="badge" aria-label="Best Seller">🔥 Best Seller</div>
-     <div class="robux-icon" aria-hidden="true">
-      <i class="fas fa-coins"></i>
+    <div aria-pressed="false" class="package-card best-seller" data-price="25900" data-robux="200" role="button" tabindex="0">
+     <div aria-label="Best Seller" class="badge">
+      🔥 Best Seller
      </div>
-     <h4>200 Robux</h4>
-     <div class="price">Rp 25.800</div>
-     <div class="stars" aria-label="Rating 5 dari 5 bintang">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i>
+     <div aria-hidden="true" class="robux-icon">
+      <i class="fas fa-coins">
+      </i>
      </div>
-     <button class="buy-now-btn" type="button">Buy Now</button>
+     <h4>
+      200 Robux
+     </h4>
+     <div class="price">
+      Rp 25.900
+     </div>
+     <div aria-label="Rating 5 dari 5 bintang" class="stars">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <button class="buy-now-btn" type="button">
+      Buy Now
+     </button>
     </div>
-    <div
-     class="package-card"
-     data-robux="500"
-     data-price="64500"
-     tabindex="0"
-     role="button"
-     aria-pressed="false"
-    >
-     <div class="robux-icon" aria-hidden="true">
-      <i class="fas fa-coins"></i>
+    <div aria-pressed="false" class="package-card" data-price="64750" data-robux="500" role="button" tabindex="0">
+     <div aria-hidden="true" class="robux-icon">
+      <i class="fas fa-coins">
+      </i>
      </div>
-     <h4>500 Robux</h4>
-     <div class="price">Rp 64.500</div>
-     <div class="stars" aria-label="Rating 4.5 dari 5 bintang">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star-half-alt"></i>
+     <h4>
+      500 Robux
+     </h4>
+     <div class="price">
+      Rp 64.750
      </div>
-     <button class="buy-now-btn" type="button">Buy Now</button>
+     <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star-half-alt">
+      </i>
+     </div>
+     <button class="buy-now-btn" type="button">
+      Buy Now
+     </button>
     </div>
-    <div
-     class="package-card"
-     data-robux="1000"
-     data-price="129000"
-     tabindex="0"
-     role="button"
-     aria-pressed="false"
-    >
-     <div class="robux-icon" aria-hidden="true">
-      <i class="fas fa-coins"></i>
+    <div aria-pressed="false" class="package-card" data-price="129500" data-robux="1000" role="button" tabindex="0">
+     <div aria-hidden="true" class="robux-icon">
+      <i class="fas fa-coins">
+      </i>
      </div>
-     <h4>1000 Robux</h4>
-     <div class="price">Rp 129.000</div>
-     <div class="stars" aria-label="Rating 5 dari 5 bintang">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i>
+     <h4>
+      1000 Robux
+     </h4>
+     <div class="price">
+      Rp 129.500
      </div>
-     <button class="buy-now-btn" type="button">Buy Now</button>
+     <div aria-label="Rating 5 dari 5 bintang" class="stars">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+     </div>
+     <button class="buy-now-btn" type="button">
+      Buy Now
+     </button>
     </div>
-    <div
-     class="package-card"
-     data-robux="1500"
-     data-price="193500"
-     tabindex="0"
-     role="button"
-     aria-pressed="false"
-    >
-     <div class="robux-icon" aria-hidden="true">
-      <i class="fas fa-coins"></i>
+    <div aria-pressed="false" class="package-card" data-price="194250" data-robux="1500" role="button" tabindex="0">
+     <div aria-hidden="true" class="robux-icon">
+      <i class="fas fa-coins">
+      </i>
      </div>
-     <h4>1500 Robux</h4>
-     <div class="price">Rp 193.500</div>
-     <div class="stars" aria-label="Rating 4.5 dari 5 bintang">
-      <i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star"></i><i class="fas fa-star"></i
-      ><i class="fas fa-star-half-alt"></i>
+     <h4>
+      1500 Robux
+     </h4>
+     <div class="price">
+      Rp 194.250
      </div>
-     <button class="buy-now-btn" type="button">Buy Now</button>
+     <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star-half-alt">
+      </i>
+     </div>
+     <button class="buy-now-btn" type="button">
+      Buy Now
+     </button>
     </div>
    </section>
-
    <!-- Top Up Section -->
-   <section
-    aria-label="Form top up Robux"
-    class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in"
-   >
+   <section aria-label="Form top up Robux" class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in max-w-md mx-auto">
     <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
      Masukkan Jumlah Robux
     </h2>
-    <div class="flex flex-col items-center">
-     <input
-      aria-label="Input jumlah Robux"
-      autocomplete="off"
-      class="w-64 px-5 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-lg mb-1"
-      id="robuxInput"
-      inputmode="numeric"
-      min="10"
-      oninput="validateInput(this); autoCalculatePrice();"
-      pattern="[0-9]*"
-      placeholder="Minimal 10 Robux"
-      type="number"
-     />
-     <p
-      class="text-red-600 font-semibold mb-2 hidden"
-      id="inputError"
-      role="alert"
-      aria-live="assertive"
-     ></p>
-     <button
-      aria-label="Hitung harga"
-      class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-10 rounded-xl shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-      disabled
-      id="calculateBtn"
-      onclick="hitungHarga()"
-      type="button"
-     >
-      Hitung Harga
-      <span id="calcLoader" class="loader hidden" aria-hidden="true"></span>
+    <div class="flex flex-col items-center container mx-auto">
+     <input aria-label="Input jumlah Robux" autocomplete="off" class="w-full px-5 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-lg mb-1" id="jumlah-robux" inputmode="numeric" max="2000" min="10" pattern="[0-9]*" placeholder="Minimal 10 Robux, Maksimal 2000 Robux" type="number"/>
+     <p aria-live="assertive" class="text-red-600 font-semibold mb-2 hidden" id="inputError" role="alert">
+     </p>
+     <p aria-live="polite" class="text-2xl font-extrabold text-gray-800 min-h-[2.5rem] w-full text-center select-none" id="harga-final">
+      —
+     </p>
+     <p class="hidden text-center text-red-600 font-semibold italic select-none" id="priceNote">
+      *Harga sudah termasuk biaya layanan.*
+     </p>
+     <button aria-label="Konfirmasi via WhatsApp" class="cta-btn" disabled="" id="checkoutBtn" type="button">
+      Konfirmasi via WhatsApp
      </button>
-     <p
-      aria-live="polite"
-      class="mt-5 text-2xl font-extrabold text-gray-800 min-h-[2.5rem]"
-      id="hargaOutput"
-     ></p>
-     <p id="priceNote" class="hidden">*Price includes service fees.*</p>
+     <p class="mt-2 text-gray-600 text-sm select-none">
+      First come, first served—stok terbatas setiap hari!
+     </p>
     </div>
-    <div
-     aria-label="Metode pembayaran"
-     class="hidden mt-10 flex justify-center gap-10 flex-wrap"
-     id="paymentMethods"
-    >
-     <button
-      aria-label="Bayar dengan QRIS"
-      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
-      onclick="confirmPayment('QRIS')"
-     >
-      <img
-       alt="Logo QRIS payment method, black QR code icon on white background"
-       class="mb-3"
-       height="80"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/46c9716c-e58e-482a-6b2e-23b89b01335f.jpg"
-       width="80"
-      />
+    <div aria-label="Metode pembayaran" class="mt-10 flex justify-center gap-10 flex-wrap" id="paymentMethods">
+     <button aria-label="Bayar dengan QRIS" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
+      <img alt="Logo QRIS payment method, black QR code icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/46c9716c-e58e-482a-6b2e-23b89b01335f.jpg" width="80"/>
       QRIS
      </button>
-     <button
-      aria-label="Bayar dengan DANA"
-      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
-      onclick="confirmPayment('DANA')"
-     >
-      <img
-       alt="Logo DANA payment method, blue wallet icon on white background"
-       class="mb-3"
-       height="80"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/f50c0bb9-fd10-4a32-4243-16e42b3ac94d.jpg"
-       width="80"
-      />
+     <button aria-label="Bayar dengan DANA" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
+      <img alt="Logo DANA payment method, blue wallet icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f50c0bb9-fd10-4a32-4243-16e42b3ac94d.jpg" width="80"/>
       DANA
      </button>
-     <button
-      aria-label="Bayar dengan GOPAY"
-      class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36"
-      onclick="confirmPayment('GOPAY')"
-     >
-      <img
-       alt="Logo GOPAY payment method, green mobile wallet icon on white background"
-       class="mb-3"
-       height="80"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/fadb4eed-cb4c-4526-c105-2b0db8b9231e.jpg"
-       width="80"
-      />
+     <button aria-label="Bayar dengan GOPAY" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
+      <img alt="Logo GOPAY payment method, green mobile wallet icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fadb4eed-cb4c-4526-c105-2b0db8b9231e.jpg" width="80"/>
       GOPAY
      </button>
     </div>
+    <div class="payment-info select-none">
+     <img alt="DANA" height="32" src="https://storage.googleapis.com/a1aa/image/e3a21188-3d52-409b-23c6-bc0fb65d9133.jpg" width="32"/>
+     <br/>
+     <small>
+      DANA: 0895428431963 (Rafa)
+     </small>
+     <img alt="GoPay" height="32" src="https://storage.googleapis.com/a1aa/image/29df5381-7cd3-48a2-bd8d-99b0e641ce41.jpg" style="margin-left:16px;" width="32"/>
+     <br/>
+     <small>
+      GoPay: 0895428431963 (Yans)
+     </small>
+    </div>
    </section>
-
    <!-- Gamepass Section -->
-   <section
-    aria-label="Daftar gamepass Roblox yang dijual"
-    class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in"
-   >
+   <section aria-label="Daftar gamepass Roblox yang dijual" class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in">
     <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
      MENJUAL GAMEPASS ROBLOX VIA GIFT
     </h2>
     <ul class="max-w-3xl mx-auto space-y-6">
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar wearing a cool red jacket and sunglasses with a gift box icon"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/1ac63be0-31fe-43b3-4468-3d39eb0b1d91.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar wearing a cool red jacket and sunglasses with a gift box icon" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1ac63be0-31fe-43b3-4468-3d39eb0b1d91.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS CDID</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS CDID
+       </h3>
        <p class="text-gray-700 text-base">
         Dapatkan gamepass premium dengan fitur eksklusif yang dikirim langsung
         via gift Roblox. Aman dan cepat!
        </p>
       </div>
      </li>
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar holding a golden gift box with sparkles around"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/e16ef611-5232-4800-375e-61f7691eb7fa.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar holding a golden gift box with sparkles around" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e16ef611-5232-4800-375e-61f7691eb7fa.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS BLOX FRUIT</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS BLOX FRUIT
+       </h3>
        <p class="text-gray-700 text-base">
         Tingkatkan pengalaman bermain dengan gamepass eksklusif yang kami
         kirimkan via gift Roblox secara aman dan terpercaya.
        </p>
       </div>
      </li>
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar with a blue hoodie and gift ribbon icon"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/6395ea0a-8e78-4182-196d-b9d37eab9f94.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar with a blue hoodie and gift ribbon icon" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6395ea0a-8e78-4182-196d-b9d37eab9f94.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS GROW A GARDEN</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS GROW A GARDEN
+       </h3>
        <p class="text-gray-700 text-base">
         Akses fitur premium dan item langka dengan gamepass yang kami kirimkan
         langsung via gift Roblox.
        </p>
       </div>
      </li>
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar with a futuristic helmet and glowing gift box"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/492f1966-43a5-443c-fe0a-6444c4f112b1.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar with a futuristic helmet and glowing gift box" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/492f1966-43a5-443c-fe0a-6444c4f112b1.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS BLUE LOCK</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS BLUE LOCK
+       </h3>
        <p class="text-gray-700 text-base">
         Nikmati fitur dan akses premium dengan gamepass yang dikirimkan via gift
         Roblox secara cepat dan aman.
        </p>
       </div>
      </li>
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar with a pirate hat and treasure chest gift"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/d1b88944-3513-4918-d827-6706aa4d9d34.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar with a pirate hat and treasure chest gift" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d1b88944-3513-4918-d827-6706aa4d9d34.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS BROOKHAVEN</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS BROOKHAVEN
+       </h3>
        <p class="text-gray-700 text-base">
         Dapatkan akses ke fitur bajak laut dan item langka dengan gamepass gift
         Roblox kami.
        </p>
       </div>
      </li>
-     <li
-      class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item"
-     >
-      <img
-       alt="Roblox avatar with a ninja outfit and gift box with shuriken"
-       class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow"
-       height="128"
-       loading="lazy"
-       src="https://storage.googleapis.com/a1aa/image/913a4f35-a9f5-44c1-976c-76cb07c15ad8.jpg"
-       width="128"
-      />
+     <li class="flex flex-col sm:flex-row items-center sm:items-start bg-red-50 rounded-xl p-5 shadow-md hover:shadow-lg transition gamepass-item">
+      <img alt="Roblox avatar with a ninja outfit and gift box with shuriken" class="w-32 h-32 object-contain rounded-lg mb-4 sm:mb-0 sm:mr-6 shadow" height="128" loading="lazy" src="https://storage.googleapis.com/a1aa/image/913a4f35-a9f5-44c1-976c-76cb07c15ad8.jpg" width="128"/>
       <div class="gamepass-content">
-       <h3 class="font-semibold text-xl text-red-700 mb-1">GAMEPASS DEAD RAILS</h3>
+       <h3 class="font-semibold text-xl text-red-700 mb-1">
+        GAMEPASS DEAD RAILS
+       </h3>
        <p class="text-gray-700 text-base">
         Akses fitur ninja dan item eksklusif dengan gamepass yang dikirim via
         gift Roblox.
        </p>
       </div>
      </li>
-     <li
-      class="bg-red-100 rounded-xl p-5 shadow-md text-center text-red-700 font-semibold text-lg"
-     >
+     <li class="bg-red-100 rounded-xl p-5 shadow-md text-center text-red-700 font-semibold text-lg">
       DAN APAPUN YANG BISA DI GIFT
      </li>
     </ul>
    </section>
-
    <!-- Tabs Section -->
    <section class="max-w-4xl mx-auto fade-in">
-    <div
-     aria-label="Informasi tambahan"
-     class="flex justify-center space-x-6 mb-8 flex-wrap"
-     role="tablist"
-    >
-     <button
-      aria-controls="caraPembelian"
-      aria-selected="true"
-      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
-      data-tab="caraPembelian"
-      id="tab-caraPembelian"
-      role="tab"
-      tabindex="0"
-     >
+    <div aria-label="Informasi tambahan" class="flex justify-center space-x-6 mb-8 flex-wrap" role="tablist">
+     <button aria-controls="caraPembelian" aria-selected="true" class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600" data-tab="caraPembelian" id="tab-caraPembelian" role="tab" tabindex="0">
       Cara Pembelian
      </button>
-     <button
-      aria-controls="testimoni"
-      aria-selected="false"
-      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
-      data-tab="testimoni"
-      id="tab-testimoni"
-      role="tab"
-      tabindex="-1"
-     >
+     <button aria-controls="testimoni" aria-selected="false" class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600" data-tab="testimoni" id="tab-testimoni" role="tab" tabindex="-1">
       Testimoni
      </button>
-     <button
-      aria-controls="kontak"
-      aria-selected="false"
-      class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600"
-      data-tab="kontak"
-      id="tab-kontak"
-      role="tab"
-      tabindex="-1"
-     >
+     <button aria-controls="kontak" aria-selected="false" class="tab-btn bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-red-600" data-tab="kontak" id="tab-kontak" role="tab" tabindex="-1">
       Kontak Admin
      </button>
     </div>
-    <div
-     aria-labelledby="tab-caraPembelian"
-     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto"
-     id="caraPembelian"
-     role="tabpanel"
-    >
-     <h3 class="text-2xl font-bold text-red-600 mb-5">Cara Pembelian</h3>
+    <div aria-labelledby="tab-caraPembelian" class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto" id="caraPembelian" role="tabpanel">
+     <h3 class="text-2xl font-bold text-red-600 mb-5">
+      Cara Pembelian
+     </h3>
      <ol class="list-decimal list-inside space-y-3 text-lg">
-      <li>Buat gamepass di Roblox sesuai instruksi admin.</li>
-      <li>Atur harga gamepass sesuai arahan admin.</li>
-      <li>Pastikan fitur enable regional dimatikan agar pembelian berhasil.</li>
+      <li>
+       Buat gamepass di Roblox sesuai instruksi admin.
+      </li>
+      <li>
+       Atur harga gamepass sesuai arahan admin.
+      </li>
+      <li>
+       Pastikan fitur enable regional dimatikan agar pembelian berhasil.
+      </li>
       <li>
        Video tutorial lengkap:
-       <a
-        class="text-red-600 underline hover:text-red-800"
-        href="https://vt.tiktok.com/ZSkANYJU9/"
-        rel="noopener noreferrer"
-        target="_blank"
-        >Tonton di TikTok</a
-       >
+       <a class="text-red-600 underline hover:text-red-800" href="https://vt.tiktok.com/ZSkANYJU9/" rel="noopener noreferrer" target="_blank">
+        Tonton di TikTok
+       </a>
       </li>
      </ol>
     </div>
-    <div
-     aria-labelledby="tab-testimoni"
-     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden"
-     id="testimoni"
-     role="tabpanel"
-    >
-     <h3 class="text-2xl font-bold text-red-600 mb-5">Testimoni</h3>
+    <div aria-labelledby="tab-testimoni" class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden" id="testimoni" role="tabpanel">
+     <h3 class="text-2xl font-bold text-red-600 mb-5">
+      Testimoni
+     </h3>
      <p class="text-lg leading-relaxed">
       "Pelayanan cepat dan harga sangat bersahabat! Saya sangat puas dengan YANSS
       STORE." –
-      <strong>Rizky</strong>
-      <br /><br />
+      <strong>
+       Rizky
+      </strong>
+      <br/>
+      <br/>
       "Proses top up mudah dan admin sangat responsif. Recommended banget!" –
-      <strong>Sari</strong>
-      <br /><br />
+      <strong>
+       Sari
+      </strong>
+      <br/>
+      <br/>
       Untuk testimoni lebih lengkap, kunjungi saluran WhatsApp kami:
-      <a
-       class="text-red-600 underline hover:text-red-800"
-       href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x"
-       rel="noopener noreferrer"
-       target="_blank"
-       >Saluran WhatsApp</a
-      >
+      <a class="text-red-600 underline hover:text-red-800" href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x" rel="noopener noreferrer" target="_blank">
+       Saluran WhatsApp
+      </a>
      </p>
     </div>
-    <div
-     aria-labelledby="tab-kontak"
-     class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden"
-     id="kontak"
-     role="tabpanel"
-    >
-     <h3 class="text-2xl font-bold text-red-600 mb-5">Kontak Admin</h3>
+    <div aria-labelledby="tab-kontak" class="tab-content bg-white rounded-xl shadow-lg p-8 text-gray-700 max-w-3xl mx-auto hidden" id="kontak" role="tabpanel">
+     <h3 class="text-2xl font-bold text-red-600 mb-5">
+      Kontak Admin
+     </h3>
      <p class="text-lg">
       Anda dapat menghubungi admin melalui WhatsApp di nomor:
-      <br />
-      <strong class="text-red-600 text-xl">+62 895-2548-6786</strong>
+      <br/>
+      <strong class="text-red-600 text-xl">
+       +62 895-2548-6786
+      </strong>
      </p>
-     <a
-      class="inline-flex items-center mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold shadow-lg transition duration-300"
-      href="https://wa.me/6289525486786"
-      rel="noopener noreferrer"
-      target="_blank"
-     >
-      <i class="fab fa-whatsapp fa-lg mr-3"></i> Chat Admin via WhatsApp
+     <a class="inline-flex items-center mt-6 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold shadow-lg transition duration-300" href="https://wa.me/6289525486786" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-whatsapp fa-lg mr-3">
+      </i>
+      Chat Admin via WhatsApp
      </a>
     </div>
    </section>
-
    <!-- AI Chatbot Section -->
-   <section
-    aria-label="Bantuan AI - Tanya Kami"
-    class="max-w-4xl mx-auto mt-16 bg-white rounded-2xl shadow-lg p-8 fade-in"
-   >
+   <section aria-label="Bantuan AI - Tanya Kami" class="max-w-4xl mx-auto mt-16 bg-white rounded-2xl shadow-lg p-8 fade-in">
     <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
      Bantuan AI - Tanya Kami
     </h2>
-    <div
-     aria-atomic="true"
-     aria-live="polite"
-     class="flex flex-col space-y-3 h-96 overflow-y-auto border border-gray-300 rounded-xl p-4 bg-gray-50"
-     id="chatContainer"
-     role="log"
-    >
+    <div aria-atomic="true" aria-live="polite" class="flex flex-col space-y-3 h-96 overflow-y-auto border border-gray-300 rounded-xl p-4 bg-gray-50" id="chatContainer" role="log">
      <div class="chat-bubble chat-bot">
       👋 Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang
       top up Robux? Tanyakan apa saja, saya siap membantu! 😊
      </div>
     </div>
-    <form
-     aria-label="Form chat dengan YanssBot"
-     class="mt-4 flex space-x-3"
-     id="chatForm"
-    >
-     <input
-      aria-label="Input pertanyaan"
-      autocomplete="off"
-      class="flex-grow border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-600"
-      id="chatInput"
-      placeholder="Tulis pertanyaanmu di sini..."
-      required
-      type="text"
-     />
-     <button
-      aria-label="Kirim pertanyaan"
-      class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 rounded-xl transition duration-300"
-      type="submit"
-     >
+    <form aria-label="Form chat dengan YanssBot" class="mt-4 flex space-x-3" id="chatForm">
+     <input aria-label="Input pertanyaan" autocomplete="off" class="flex-grow border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-600" id="chatInput" placeholder="Tulis pertanyaanmu di sini..." required="" type="text"/>
+     <button aria-label="Kirim pertanyaan" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 rounded-xl transition duration-300" type="submit">
       Kirim
      </button>
     </form>
    </section>
   </main>
-
   <!-- Footer -->
   <footer class="bg-white border-t border-gray-300 mt-16 py-8">
-   <div
-    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm space-y-4 md:space-y-0"
-   >
-    <p>© 2024 YANSS STORE. All rights reserved.</p>
+   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm space-y-4 md:space-y-0">
+    <p>
+     © 2024 YANSS STORE. All rights reserved.
+    </p>
     <div class="flex space-x-6">
-     <a
-      aria-label="Facebook"
-      class="hover:text-red-600 transition"
-      href="https://facebook.com"
-      target="_blank"
-      ><i class="fab fa-facebook fa-lg"></i
-     ></a>
-     <a
-      aria-label="Twitter"
-      class="hover:text-red-600 transition"
-      href="https://twitter.com"
-      target="_blank"
-      ><i class="fab fa-twitter fa-lg"></i
-     ></a>
-     <a
-      aria-label="Instagram"
-      class="hover:text-red-600 transition"
-      href="https://instagram.com"
-      target="_blank"
-      ><i class="fab fa-instagram fa-lg"></i
-     ></a>
-     <a
-      aria-label="YouTube"
-      class="hover:text-red-600 transition"
-      href="https://youtube.com"
-      target="_blank"
-      ><i class="fab fa-youtube fa-lg"></i
-     ></a>
+     <a aria-label="Facebook" class="hover:text-red-600 transition" href="https://facebook.com" target="_blank">
+      <i class="fab fa-facebook fa-lg">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-red-600 transition" href="https://twitter.com" target="_blank">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-red-600 transition" href="https://instagram.com" target="_blank">
+      <i class="fab fa-instagram fa-lg">
+      </i>
+     </a>
+     <a aria-label="YouTube" class="hover:text-red-600 transition" href="https://youtube.com" target="_blank">
+      <i class="fab fa-youtube fa-lg">
+      </i>
+     </a>
     </div>
    </div>
   </footer>
-
-  <!-- Popup Modal -->
-  <div
-   class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm hidden z-50"
-   id="popupOverlay"
-  ></div>
-  <div
-   aria-labelledby="popupMessage"
-   aria-modal="true"
-   class="fixed inset-0 flex items-center justify-center p-4 z-50 hidden"
-   id="popup"
-   role="dialog"
-  >
-   <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-lg">
-    <p class="whitespace-pre-wrap font-semibold mb-6 text-gray-900" id="popupMessage"></p>
-    <button
-     class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-xl transition duration-300"
-     onclick="closePopup()"
-    >
-     Tutup
-    </button>
-   </div>
-  </div>
-
   <!-- Toast Container -->
-  <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
-
+  <div aria-atomic="true" aria-live="polite" id="toastContainer">
+  </div>
   <script>
    // Sticky navbar shadow on scroll
    const navbar = document.getElementById("navbar");
@@ -1103,6 +972,7 @@
    // Variables for selected Robux and price
    let selectedRobux = 0;
    let selectedPrice = 0;
+   let selectedPaymentMethod = null;
 
    // Toast notification function
    const toastContainer = document.getElementById("toastContainer");
@@ -1116,340 +986,179 @@
     }, 4000);
    }
 
-   // Validate input and enable/disable button
-   function validateInput(input) {
-    const val = input.value.trim();
-    const errorEl = document.getElementById("inputError");
-    const btn = document.getElementById("calculateBtn");
-    if (
-     !val ||
-     isNaN(val) ||
-     val.includes(".") ||
-     val.includes(",") ||
-     +val < 10 ||
-     !Number.isInteger(Number(val))
-    ) {
-     errorEl.textContent = "Masukkan angka bulat minimal 10 Robux.";
-     errorEl.classList.remove("hidden");
-     btn.disabled = true;
-     document.getElementById("hargaOutput").textContent = "";
-     document.getElementById("priceNote").classList.add("hidden");
-     document.getElementById("paymentMethods").classList.add("hidden");
-     return false;
-    } else {
-     errorEl.classList.add("hidden");
-     btn.disabled = false;
-     return true;
-    }
-   }
-
-   // Calculate price function with rate 12,900 IDR = 100 Robux + hidden markup if > 150 Robux
-   function hitungHarga() {
-    const input = document.getElementById("robuxInput");
-    if (!validateInput(input)) return;
-
-    const calculateBtn = document.getElementById("calculateBtn");
-    const loader = document.getElementById("calcLoader");
-    calculateBtn.disabled = true;
-    loader.classList.remove("hidden");
-
-    setTimeout(() => {
-     const jumlah = Math.floor(Number(input.value));
-     selectedRobux = jumlah;
-     // Base price: Rp 12,900 per 100 Robux
-     let total = (jumlah / 100) * 12900;
-
-     // Hidden markup if Robux > 150
-     if (jumlah > 150) {
-      const markup = Math.floor(Math.random() * 501) + 500;
-      total += markup;
-     }
-     selectedPrice = Math.ceil(total);
-
-     document.getElementById(
-      "hargaOutput"
-     ).textContent = `Harga: Rp ${selectedPrice.toLocaleString("id-ID")}`;
-     document.getElementById("paymentMethods").classList.remove("hidden");
-     document.getElementById("priceNote").classList.remove("hidden");
-
-     // Scroll to payment methods
-     document
-      .getElementById("paymentMethods")
-      .scrollIntoView({ behavior: "smooth" });
-
-     calculateBtn.disabled = false;
-     loader.classList.add("hidden");
-    }, 700);
-   }
-
-   // New function to auto calculate price on input change (without loader)
-   function autoCalculatePrice() {
-    const input = document.getElementById("robuxInput");
-    if (!validateInput(input)) {
-     selectedRobux = 0;
-     selectedPrice = 0;
-     document.getElementById("hargaOutput").textContent = "";
-     document.getElementById("paymentMethods").classList.add("hidden");
-     document.getElementById("priceNote").classList.add("hidden");
-     return;
-    }
-    const jumlah = Math.floor(Number(input.value));
-    selectedRobux = jumlah;
-    let total = (jumlah / 100) * 12900;
-    if (jumlah > 150) {
-     const markup = Math.floor(Math.random() * 501) + 500;
-     total += markup;
-    }
-    selectedPrice = Math.ceil(total);
-    document.getElementById(
-     "hargaOutput"
-    ).textContent = `Harga: Rp ${selectedPrice.toLocaleString("id-ID")}`;
-    document.getElementById("paymentMethods").classList.remove("hidden");
-    document.getElementById("priceNote").classList.remove("hidden");
-   }
-
-   // Confirm payment popup
-   function confirmPayment(method) {
-    if (selectedRobux < 10 || selectedPrice <= 0) {
-     alert("Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu.");
-     return;
-    }
-    const usernameInput = document.getElementById("usernameInput");
-    const username = usernameInput.value.trim();
+   // Validate username input
+   function validateUsername(username) {
     const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
-    if (!usernameRegex.test(username)) {
-     showToast("❌ Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.", "error");
-     usernameInput.focus();
-     return;
+    return usernameRegex.test(username);
+   }
+
+   // Validate Robux input and enable/disable checkout button
+   const robuxInput = document.getElementById("jumlah-robux");
+   const usernameInput = document.getElementById("usernameInput");
+   const checkoutBtn = document.getElementById("checkoutBtn");
+   const priceDisplay = document.getElementById("harga-final");
+   const inputError = document.getElementById("inputError");
+   const priceNote = document.getElementById("priceNote");
+   const paymentMethods = document.getElementById("paymentMethods");
+
+   // Debounce helper
+   function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+     clearTimeout(timeout);
+     timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+   }
+
+   // Calculate final price function
+   function calculateFinalPrice(amount) {
+    try {
+     if (!Number.isInteger(amount) || amount < 10 || amount > 2000) throw "Invalid amount";
+     const rate = 12950 / 100;
+     const base = amount * rate;
+     const profit = amount >= 125 ? Math.floor(Math.random() * 501) + 500 : 0;
+     return Math.ceil(base + profit);
+    } catch (err) {
+     console.error("Error in calculateFinalPrice:", err);
+     return null;
     }
-    const message = `JUMLAH ROBUX YANG AKAN DIBELI ADALAH ${selectedRobux}.
-HARGA: Rp ${selectedPrice.toLocaleString("id-ID")}.
-METODE PEMBAYARAN YANG DIPILIH ADALAH ${method}.
-USERNAME ROBLOX: ${username}
-
-SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
-    document.getElementById("popupMessage").textContent = message;
-    document.getElementById("popupOverlay").classList.remove("hidden");
-    document.getElementById("popup").classList.remove("hidden");
    }
 
-   // Close popup
-   function closePopup() {
-    document.getElementById("popupOverlay").classList.add("hidden");
-    document.getElementById("popup").classList.add("hidden");
-   }
-
-   // Tabs functionality
-   const tabButtons = document.querySelectorAll(".tab-btn");
-   const tabContents = document.querySelectorAll(".tab-content");
-
-   tabButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-     const target = btn.getAttribute("data-tab");
-
-     tabButtons.forEach((b) => {
-      b.classList.remove("bg-red-800");
-      b.setAttribute("aria-selected", "false");
-      b.classList.remove("ring-2", "ring-red-600");
-      b.setAttribute("tabindex", "-1");
-     });
-     btn.classList.add("bg-red-800", "ring-2", "ring-red-600");
-     btn.setAttribute("aria-selected", "true");
-     btn.setAttribute("tabindex", "0");
-     btn.focus();
-
-     tabContents.forEach((content) => {
-      if (content.id === target) {
-       content.classList.remove("hidden");
-      } else {
-       content.classList.add("hidden");
-      }
-     });
-    });
-   });
-
-   // Initialize first tab active on load
-   window.addEventListener("DOMContentLoaded", () => {
-    tabButtons[0].classList.add("bg-red-800", "ring-2", "ring-red-600");
-    tabButtons[0].setAttribute("aria-selected", "true");
-    tabButtons[0].setAttribute("tabindex", "0");
-    tabContents[0].classList.remove("hidden");
-   });
-
-   // AI Chatbot simulation
-   const chatContainer = document.getElementById("chatContainer");
-   const chatForm = document.getElementById("chatForm");
-   const chatInput = document.getElementById("chatInput");
-
-   // Enhanced bot responses with 20 paragraphs and friendly tone
-   const botResponses = {
-    greeting:
-     "👋 Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang top up Robux? Tanyakan apa saja, saya siap membantu! 😊",
-    minRobux:
-     "⚠️ Minimal pembelian adalah 10 Robux. Silakan masukkan jumlah yang valid ya.",
-    priceInfo: (amount, price) =>
-     `💰 Harga untuk ${amount} Robux adalah Rp ${price.toLocaleString("id-ID")}.`,
-    paymentMethods:
-     "💳 Metode pembayaran yang tersedia: QRIS, DANA, GOPAY. Silakan pilih salah satu setelah menghitung harga.",
-    thanks:
-     "🙏 Terima kasih telah menghubungi YANSS STORE! Jika ada pertanyaan lain, silakan tanyakan kapan saja.",
-    unknown:
-     "🤔 Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin untuk bantuan lebih lanjut.",
-    robuxGamepassLongReply: `Baik! Berikut adalah penjelasan lengkap tentang pembelian Robux via Gamepass di YANSS STORE. Jika ingin detail lebih lanjut, saya siap membantu! 😊
-
-1. YANSS STORE menyediakan layanan menjual gamepass Roblox melalui sistem gift yang aman dan terpercaya.
-2. Anda dapat membeli gamepass dengan harga yang kompetitif dan proses pengiriman cepat.
-3. Semua gamepass yang kami jual adalah asli dan dapat langsung digunakan di akun Roblox Anda.
-4. Kami memastikan keamanan transaksi tanpa perlu memberikan akses akun Anda.
-5. Proses pembelian mudah, cukup masukkan jumlah Robux yang diinginkan dan pilih metode pembayaran.
-6. Setelah pembayaran dikonfirmasi, gamepass akan dikirimkan via gift Roblox dalam waktu singkat.
-7. Kami menyediakan berbagai jenis gamepass, mulai dari premium hingga eksklusif.
-8. Anda juga bisa mendapatkan promo dan bonus khusus untuk pembelian dalam jumlah besar.
-9. Layanan pelanggan kami siap membantu 24/7 jika Anda mengalami kendala.
-10. Pastikan fitur enable regional di Roblox dimatikan agar gift dapat diterima dengan lancar.
-11. Kami menggunakan metode pembayaran populer seperti QRIS, DANA, dan GOPAY untuk kemudahan Anda.
-12. Semua transaksi tercatat dan dapat dilacak untuk keamanan dan kenyamanan Anda.
-13. Kami selalu memperbarui daftar gamepass yang tersedia sesuai dengan permintaan pasar.
-14. Anda dapat menghubungi admin kami langsung via WhatsApp untuk konsultasi dan bantuan.
-15. Kami menghargai privasi dan keamanan data pelanggan dengan standar tertinggi.
-16. Pembelian gamepass via gift memungkinkan Anda mendapatkan item langka dan fitur premium.
-17. Kami menyediakan tutorial lengkap untuk membantu Anda membuat dan membeli gamepass.
-18. Sistem kami dirancang untuk meminimalisir risiko penipuan dan kesalahan pengiriman.
-19. Kami berkomitmen memberikan pengalaman top up terbaik dengan harga terjangkau.
-20. Terima kasih telah memilih YANSS STORE sebagai partner top up Robux Anda!`,
-   };
-
-   function appendMessage(text, sender) {
-    const div = document.createElement("div");
-    div.classList.add("chat-bubble", sender === "user" ? "chat-user" : "chat-bot");
-    div.textContent = text;
-    chatContainer.appendChild(div);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-   }
-
-   chatForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const userText = chatInput.value.trim();
-    if (!userText) return;
-    appendMessage(userText, "user");
-    chatInput.value = "";
-    setTimeout(() => {
-     // Simple keyword-based response with more friendly and varied replies
-     const lower = userText.toLowerCase();
-     if (lower.includes("minimal") || lower.includes("minimum")) {
-      appendMessage(botResponses.minRobux, "bot");
-     } else if (lower.includes("harga") || lower.includes("price")) {
-      if (selectedRobux > 0 && selectedPrice > 0) {
-       appendMessage(botResponses.priceInfo(selectedRobux, selectedPrice), "bot");
-      } else {
-       appendMessage(
-        "Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu ya 😊.",
-        "bot"
-       );
-      }
-     } else if (
-      lower.includes("metode") ||
-      lower.includes("bayar") ||
-      lower.includes("payment")
+   // Update price display and button state
+   function updatePriceAndButton() {
+    try {
+     const val = robuxInput.value.trim();
+     const amount = parseInt(val, 10);
+     if (
+      !val ||
+      isNaN(amount) ||
+      val.includes(".") ||
+      val.includes(",") ||
+      amount < 10 ||
+      amount > 2000 ||
+      !Number.isInteger(amount)
      ) {
-      appendMessage(botResponses.paymentMethods, "bot");
-     } else if (lower.includes("terima kasih") || lower.includes("thanks")) {
-      appendMessage(botResponses.thanks, "bot");
-     } else if (
-      lower.includes("halo") ||
-      lower.includes("hai") ||
-      lower.includes("hello")
-     ) {
-      appendMessage(botResponses.greeting, "bot");
-     } else if (
-      lower.includes("gamepass") &&
-      (lower.includes("penjelasan") || lower.includes("detail") || lower.includes("lengkap"))
-     ) {
-      appendMessage(botResponses.robuxGamepassLongReply, "bot");
-     } else if (
-      lower.includes("promo") ||
-      lower.includes("diskon") ||
-      lower.includes("bonus")
-     ) {
-      appendMessage(
-       "🎉 Kami sering memberikan promo dan bonus khusus untuk pembelian besar. Hubungi admin untuk info terbaru!",
-       "bot"
-      );
-     } else if (
-      lower.includes("waktu") &&
-      (lower.includes("proses") || lower.includes("lama") || lower.includes("berapa lama"))
-     ) {
-      appendMessage(
-       "⏳ Proses pembelian biasanya memakan waktu 3-7 hari kerja sesuai sistem Roblox. Kami akan bantu pantau ya!",
-       "bot"
-      );
-     } else if (
-      lower.includes("aman") ||
-      lower.includes("keamanan") ||
-      lower.includes("resiko")
-     ) {
-      appendMessage(
-       "🔒 Transaksi di YANSS STORE 100% aman. Kamu tidak perlu memberikan akses akun, dan Robux masuk langsung ke akun kamu.",
-       "bot"
-      );
-     } else {
-      appendMessage(botResponses.unknown, "bot");
+      inputError.textContent = "Masukkan angka bulat antara 10 sampai 2000 Robux.";
+      inputError.classList.remove("hidden");
+      priceDisplay.style.opacity = 0;
+      setTimeout(() => {
+       priceDisplay.textContent = "—";
+       priceDisplay.style.opacity = 1;
+      }, 100);
+      checkoutBtn.disabled = true;
+      priceNote.classList.add("hidden");
+      paymentMethods.classList.add("hidden");
+      selectedRobux = 0;
+      selectedPrice = 0;
+      return;
      }
-    }, 1000);
+     inputError.classList.add("hidden");
+     const price = calculateFinalPrice(amount);
+     selectedRobux = amount;
+     selectedPrice = price;
+     priceDisplay.style.opacity = 0;
+     setTimeout(() => {
+      priceDisplay.textContent = price ? `Rp${price.toLocaleString("id-ID")}` : "—";
+      priceDisplay.style.opacity = 1;
+     }, 100);
+     checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
+     priceNote.classList.remove("hidden");
+     paymentMethods.classList.remove("hidden");
+    } catch (e) {
+     console.error(e);
+    }
+   }
+
+   // Debounced input listener
+   robuxInput.addEventListener("input", debounce(updatePriceAndButton, 300));
+
+   // Username input listener to enable/disable checkout button
+   usernameInput.addEventListener("input", () => {
+    try {
+     const username = usernameInput.value.trim();
+     checkoutBtn.disabled = !(
+      validateUsername(username) && selectedRobux >= 10 && selectedPrice > 0 && selectedPaymentMethod
+     );
+    } catch (e) {
+     console.error(e);
+    }
+   });
+
+   // Payment method buttons click handler
+   const paymentButtons = paymentMethods.querySelectorAll(".payment-method");
+   paymentButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+     try {
+      // Remove selected style from all
+      paymentButtons.forEach((b) => {
+       b.classList.remove("ring-4", "ring-yellow-400");
+       b.setAttribute("aria-pressed", "false");
+      });
+      // Add selected style to clicked
+      btn.classList.add("ring-4", "ring-yellow-400");
+      btn.setAttribute("aria-pressed", "true");
+      selectedPaymentMethod = btn.textContent.trim().toUpperCase();
+      checkoutBtn.disabled = !(
+       validateUsername(usernameInput.value.trim()) && selectedRobux >= 10 && selectedPrice > 0 && selectedPaymentMethod
+      );
+      showToast(`✅ Metode pembayaran dipilih: ${selectedPaymentMethod}`, "success");
+     } catch (e) {
+      console.error(e);
+     }
+    });
    });
 
    // Robux package selection logic
    const packageCards = document.querySelectorAll(".package-card");
-   const robuxInput = document.getElementById("robuxInput");
-   const calculateBtn = document.getElementById("calculateBtn");
 
    packageCards.forEach((card) => {
     const buyBtn = card.querySelector(".buy-now-btn");
     buyBtn.addEventListener("click", () => {
-     const usernameInput = document.getElementById("usernameInput");
-     const username = usernameInput.value.trim();
-     const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
-     if (!usernameRegex.test(username)) {
-      showToast(
-       "❌ Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.",
-       "error"
-      );
-      usernameInput.focus();
-      return;
+     try {
+      const username = usernameInput.value.trim();
+      if (!validateUsername(username)) {
+       showToast(
+        "❌ Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.",
+        "error"
+       );
+       usernameInput.focus();
+       return;
+      }
+      // Remove selection from all cards
+      packageCards.forEach((c) => {
+       c.classList.remove("selected");
+       c.setAttribute("aria-pressed", "false");
+      });
+      // Mark this card as selected
+      card.classList.add("selected");
+      card.setAttribute("aria-pressed", "true");
+
+      // Set input value and price output
+      const robuxAmount = parseInt(card.getAttribute("data-robux"), 10);
+      robuxInput.value = robuxAmount;
+      selectedRobux = robuxAmount;
+
+      // Calculate price with hidden markup if > 125
+      const price = calculateFinalPrice(robuxAmount);
+      selectedPrice = price;
+
+      priceDisplay.style.opacity = 0;
+      setTimeout(() => {
+       priceDisplay.textContent = price ? `Rp${price.toLocaleString("id-ID")}` : "—";
+       priceDisplay.style.opacity = 1;
+      }, 100);
+
+      checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
+      priceNote.classList.remove("hidden");
+      paymentMethods.classList.remove("hidden");
+
+      showToast(`✅ Paket ${robuxAmount} Robux berhasil dipilih!`, "success");
+
+      // Scroll to topup section
+      document.getElementById("topupSection").scrollIntoView({ behavior: "smooth" });
+     } catch (e) {
+      console.error(e);
      }
-     // Remove selection from all cards
-     packageCards.forEach((c) => {
-      c.classList.remove("selected");
-      c.setAttribute("aria-pressed", "false");
-     });
-     // Mark this card as selected
-     card.classList.add("selected");
-     card.setAttribute("aria-pressed", "true");
-
-     // Set input value and price output
-     const robuxAmount = parseInt(card.getAttribute("data-robux"), 10);
-     robuxInput.value = robuxAmount;
-     selectedRobux = robuxAmount;
-
-     // Calculate price with hidden markup if > 150
-     let total = (robuxAmount / 100) * 12900;
-     if (robuxAmount > 150) {
-      const markup = Math.floor(Math.random() * 501) + 500;
-      total += markup;
-     }
-     selectedPrice = Math.ceil(total);
-
-     document.getElementById(
-      "hargaOutput"
-     ).textContent = `Harga: Rp ${selectedPrice.toLocaleString("id-ID")}`;
-     document.getElementById("paymentMethods").classList.remove("hidden");
-     document.getElementById("priceNote").classList.remove("hidden");
-     calculateBtn.disabled = false;
-
-     showToast(`✅ Paket ${robuxAmount} Robux berhasil dipilih!`, "success");
-
-     // Scroll to topup section
-     document.getElementById("topupSection").scrollIntoView({ behavior: "smooth" });
     });
 
     // Keyboard accessibility: allow Enter or Space to trigger buy button
@@ -1464,22 +1173,98 @@ SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
    // Clipboard copy username
    const copyUsernameBtn = document.getElementById("copyUsernameBtn");
    copyUsernameBtn.addEventListener("click", () => {
-    const usernameInput = document.getElementById("usernameInput");
-    const username = usernameInput.value.trim();
-    if (!username) {
-     showToast("❌ Username kosong, tidak ada yang disalin.", "error");
-     usernameInput.focus();
-     return;
+    try {
+     const username = usernameInput.value.trim();
+     if (!username) {
+      showToast("❌ Username kosong, tidak ada yang disalin.", "error");
+      usernameInput.focus();
+      return;
+     }
+     navigator.clipboard
+      .writeText(username)
+      .then(() => {
+       showToast("✅ Username berhasil disalin ke clipboard.", "success");
+      })
+      .catch(() => {
+       showToast("❌ Gagal menyalin username. Silakan coba lagi.", "error");
+      });
+    } catch (e) {
+     console.error(e);
     }
-    navigator.clipboard
-     .writeText(username)
-     .then(() => {
-      showToast("✅ Username berhasil disalin ke clipboard.", "success");
-     })
-     .catch(() => {
-      showToast("❌ Gagal menyalin username. Silakan coba lagi.", "error");
-     });
+   });
+
+   // Remove any upload or screenshot related code (none present in this code)
+
+   // Append WhatsApp confirmation button below form
+   const topupSection = document.getElementById("topupSection");
+   const whatsappBtn = document.createElement("button");
+   whatsappBtn.id = "whatsappConfirm";
+   whatsappBtn.className = "cta-btn mt-4";
+   whatsappBtn.textContent = "Konfirmasi via WhatsApp";
+   whatsappBtn.disabled = true;
+   topupSection.querySelector("section.bg-white.rounded-2xl.shadow-lg.p-8.mb-12").appendChild(whatsappBtn);
+
+   // Enable whatsappConfirm button same as checkoutBtn logic
+   function updateWhatsappBtnState() {
+    try {
+     whatsappBtn.disabled = !(
+      validateUsername(usernameInput.value.trim()) &&
+      selectedPaymentMethod &&
+      selectedRobux >= 10 &&
+      selectedPrice > 0
+     );
+    } catch (e) {
+     console.error(e);
+    }
+   }
+   // Update whatsappConfirm button state on relevant inputs
+   robuxInput.addEventListener("input", () => {
+    updateWhatsappBtnState();
+   });
+   usernameInput.addEventListener("input", () => {
+    updateWhatsappBtnState();
+   });
+   paymentButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+     updateWhatsappBtnState();
+    });
+   });
+
+   // WhatsApp confirmation button click handler
+   whatsappBtn.addEventListener("click", () => {
+    try {
+     const userRaw = usernameInput.value.trim();
+     if (!validateUsername(userRaw)) {
+      alert("Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.");
+      usernameInput.focus();
+      return;
+     }
+     const user = userRaw.replace(/\s+/g, "");
+     const amt = selectedRobux;
+     const price = selectedPrice;
+     const method = selectedPaymentMethod;
+     const date = new Date().toLocaleDateString("id-ID");
+     if (!user || !amt || !price || !method) throw "Incomplete data";
+
+     const lines = [
+      "📥 Konfirmasi Pembayaran:",
+      `Username Roblox: ${user}`,
+      `Jumlah Robux: ${amt}`,
+      `Harga Robux: Rp${price.toLocaleString("id-ID")}`,
+      `Metode Pembayaran: ${method}`,
+      `Tanggal Pembelian: ${date}`,
+      "",
+      "Mohon proses pembelian ini ya🙏",
+     ];
+     const url = "https://wa.me/6289525486786?text=" + encodeURIComponent(lines.join("\n"));
+     whatsappBtn.disabled = true;
+     window.open(url, "_blank");
+     setTimeout(() => (whatsappBtn.disabled = false), 1200);
+    } catch (err) {
+     console.error("WhatsAppConfirmError:", err);
+     alert("Terjadi kesalahan, coba lagi.");
+    }
    });
   </script>
  </body>
-       </html>
+</html>
