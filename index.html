@@ -1,5 +1,7 @@
 <html lang="id">
+
  <head>
+
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
@@ -377,81 +379,79 @@
     margin-top: 0.25rem;
     user-select: none;
    }
-   /* New promo banner */
-   #promoBanner {
-    border-left: 6px solid #22c55e;
-    background-color: #dcfce7;
-    padding: 12px;
-    margin-bottom: 16px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #166534;
+   /* New badge promo style */
+   .badge-promo {
+    background: #f68b1e;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
     font-weight: 600;
-    border-radius: 0.5rem;
-    text-align: center;
+    animation: pulse 1.2s ease-in-out infinite;
     user-select: none;
    }
-   /* Payment info icons & text */
+   @keyframes pulse {
+    0%,
+    100% {
+     transform: scale(1);
+    }
+    50% {
+     transform: scale(1.05);
+    }
+   }
+   /* Price display fade */
+   #harga-final {
+    transition: opacity 0.3s ease;
+   }
+   /* Checkout button style */
+   .cta-btn {
+    background: linear-gradient(90deg, #f68b1e, #e65c00);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    text-align: center;
+   }
+   .cta-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   }
+   .cta-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+   }
+   /* Payment info container */
    .payment-info {
     margin-top: 1rem;
     text-align: center;
-    color: #1e293b;
-    font-weight: 600;
+    color: #444;
+    font-size: 0.875rem;
     user-select: none;
    }
    .payment-info img {
-    width: 32px;
-    height: 32px;
     vertical-align: middle;
-    transition: transform 0.3s ease;
+    margin: 0 8px 4px 8px;
+    transition: transform 0.3s;
     cursor: default;
    }
    .payment-info img:hover {
     transform: scale(1.1);
    }
-   .payment-info small {
-    display: inline-block;
-    margin: 0 12px 8px 12px;
-    font-weight: 500;
-    color: #4b5563;
-   }
-   /* Checkout button */
-   #checkoutBtn {
-    background-color: #22c55e;
-    color: white;
-    font-weight: 700;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    box-shadow: 0 0 10px #22c55eaa;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    user-select: none;
-    margin: 1.5rem auto 0 auto;
-    display: block;
-    max-width: 320px;
-    width: 100%;
-    font-size: 1.125rem;
-   }
-   #checkoutBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: #16a34a;
-   }
-   #checkoutBtn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-   }
-   /* Input and price display transition */
-   input,
-   #hargaOutput {
-    transition: opacity 0.3s;
-   }
-   /* Responsive container flex direction */
+   /* Responsive adjustments */
    @media (max-width: 768px) {
     .container {
      flex-direction: column;
+    }
+    .badge-promo {
+     font-size: 0.9rem;
     }
    }
   </style>
@@ -532,12 +532,20 @@
   </header>
   <!-- Main Content -->
   <main class="flex-grow max-w-5xl mx-auto px-6 py-12" id="topupSection">
-   <!-- Promo Banner -->
-   <div aria-atomic="true" aria-live="polite" id="promoBanner" role="region">
-    🎉 Promo 20% OFF! Harga turun dari Rp12.900 → Rp13.500 per 100 Robux!
+   <!-- Promo Badge and Microcopy -->
+   <div class="text-center mb-4">
+    <span class="badge-promo inline-block mb-2">
+     🎉 PROMO TERBARU! Rp13.700/100 Robux dipotong menjadi Rp13.200/100 Robux — Nikmati harga terbaik tanpa kompromi!
+    </span>
+    <p class="text-red-600 font-semibold select-none">
+     🔥 Harga asli Rp13.700, sekarang hanya Rp13.200 per 100 Robux!
+    </p>
+    <p class="text-gray-700 mt-1 mb-6 select-none">
+     Stok terbatas setiap hari, jangan sampai kehabisan! Segera top up dan rasakan keuntungannya.
+    </p>
    </div>
    <!-- Username Input with Copy -->
-   <div class="fade-in" id="usernameContainer">
+   <div class="fade-in mx-auto max-w-xs" id="usernameContainer">
     <label class="block mb-2 font-semibold text-red-600 text-lg text-center" for="usernameInput">
      Masukkan Username Roblox Anda
     </label>
@@ -549,7 +557,7 @@
    </div>
    <!-- Robux Packages Grid -->
    <section aria-label="Paket Robux" class="fade-in" id="robuxPackages">
-    <div aria-pressed="false" class="package-card" data-price="13500" data-robux="100" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="13200" data-robux="100" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -558,7 +566,7 @@
       100 Robux
      </h4>
      <div class="price">
-      Rp 13.500
+      Rp 13.200
      </div>
      <div aria-label="Rating 4 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -576,7 +584,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card best-seller" data-price="27000" data-robux="200" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card best-seller" data-price="26400" data-robux="200" role="button" tabindex="0">
      <div aria-label="Best Seller" class="badge">
       🔥 Best Seller
      </div>
@@ -588,7 +596,7 @@
       200 Robux
      </h4>
      <div class="price">
-      Rp 27.000
+      Rp 26.400
      </div>
      <div aria-label="Rating 5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -606,16 +614,16 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="84375" data-robux="625" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="85200" data-robux="500" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
      </div>
      <h4>
-      625 Robux
+      500 Robux
      </h4>
      <div class="price">
-      Rp 84.375
+      Rp 85.200
      </div>
      <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -633,7 +641,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="135000" data-robux="1000" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="132000" data-robux="1000" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -642,7 +650,7 @@
       1000 Robux
      </h4>
      <div class="price">
-      Rp 135.000
+      Rp 132.000
      </div>
      <div aria-label="Rating 5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -660,7 +668,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="202500" data-robux="1500" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="198000" data-robux="1500" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -669,7 +677,7 @@
       1500 Robux
      </h4>
      <div class="price">
-      Rp 202.500
+      Rp 198.000
      </div>
      <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -689,55 +697,53 @@
     </div>
    </section>
    <!-- Top Up Section -->
-   <section aria-label="Form top up Robux" class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in">
+   <section aria-label="Form top up Robux" class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in max-w-md mx-auto">
     <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">
      Masukkan Jumlah Robux
     </h2>
-    <div class="flex flex-col items-center container">
-     <input aria-label="Input jumlah Robux" autocomplete="off" class="w-64 px-5 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-lg mb-1" id="jumlah-robux" inputmode="numeric" max="2000" min="10" pattern="[0-9]*" placeholder="Minimal 10 Robux, Maksimal 2000 Robux" type="number"/>
+    <div class="flex flex-col items-center container mx-auto">
+     <input aria-label="Input jumlah Robux" autocomplete="off" class="w-full px-5 py-3 rounded-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-600 text-lg mb-1" id="jumlah-robux" inputmode="numeric" max="2000" min="10" pattern="[0-9]*" placeholder="Minimal 10 Robux, Maksimal 2000 Robux" type="number"/>
      <p aria-live="assertive" class="text-red-600 font-semibold mb-2 hidden" id="inputError" role="alert">
      </p>
-     <button aria-label="Hitung harga" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-10 rounded-xl shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center" disabled="" id="calculateBtn" type="button">
-      Hitung Harga
-      <span aria-hidden="true" class="loader hidden" id="calcLoader">
-      </span>
-     </button>
-     <p aria-live="polite" class="mt-5 text-2xl font-extrabold text-gray-800 min-h-[2.5rem]" id="harga-final">
-      Rp—
+     <p aria-live="polite" class="text-2xl font-extrabold text-gray-800 min-h-[2.5rem] w-full text-center select-none" id="harga-final">
+      —
      </p>
-     <p class="hidden" id="priceNote">
-      *Price includes service fees.*
+     <p class="hidden text-center text-red-600 font-semibold italic select-none" id="priceNote">
+      *Harga sudah termasuk biaya layanan.*
+     </p>
+     <button aria-label="Konfirmasi via WhatsApp" class="cta-btn" disabled="" id="checkoutBtn" type="button">
+      Konfirmasi via WhatsApp
+     </button>
+     <p class="mt-2 text-gray-600 text-sm select-none">
+      First come, first served—stok terbatas setiap hari!
      </p>
     </div>
-    <div aria-label="Metode pembayaran" class="hidden mt-10 flex justify-center gap-10 flex-wrap" id="paymentMethods">
-     <button aria-label="Bayar dengan QRIS" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" onclick="confirmPayment('QRIS')">
+    <div aria-label="Metode pembayaran" class="mt-10 flex justify-center gap-10 flex-wrap" id="paymentMethods">
+     <button aria-label="Bayar dengan QRIS" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
       <img alt="Logo QRIS payment method, black QR code icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/46c9716c-e58e-482a-6b2e-23b89b01335f.jpg" width="80"/>
       QRIS
      </button>
-     <button aria-label="Bayar dengan DANA" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" onclick="confirmPayment('DANA')">
+     <button aria-label="Bayar dengan DANA" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
       <img alt="Logo DANA payment method, blue wallet icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f50c0bb9-fd10-4a32-4243-16e42b3ac94d.jpg" width="80"/>
       DANA
      </button>
-     <button aria-label="Bayar dengan GOPAY" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" onclick="confirmPayment('GOPAY')">
+     <button aria-label="Bayar dengan GOPAY" class="payment-method flex flex-col items-center bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-2xl shadow-lg transition duration-300 w-36" type="button">
       <img alt="Logo GOPAY payment method, green mobile wallet icon on white background" class="mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fadb4eed-cb4c-4526-c105-2b0db8b9231e.jpg" width="80"/>
       GOPAY
      </button>
     </div>
-    <div aria-label="Informasi pembayaran tambahan" class="payment-info">
-     <img alt="DANA" height="32" src="https://storage.googleapis.com/a1aa/image/af4ac117-ea0d-4322-12b9-edac1ee3ec66.jpg" width="32"/>
+    <div class="payment-info select-none">
+     <img alt="DANA" height="32" src="https://storage.googleapis.com/a1aa/image/e3a21188-3d52-409b-23c6-bc0fb65d9133.jpg" width="32"/>
      <br/>
      <small>
       DANA: 0895428431963 (Rafa)
      </small>
-     <img alt="GoPay" height="32" src="https://storage.googleapis.com/a1aa/image/521a4bbd-362b-4dc3-651e-9b5f2960a919.jpg" style="margin-left:16px;" width="32"/>
+     <img alt="GoPay" height="32" src="https://storage.googleapis.com/a1aa/image/29df5381-7cd3-48a2-bd8d-99b0e641ce41.jpg" style="margin-left:16px;" width="32"/>
      <br/>
      <small>
       GoPay: 0895428431963 (Yans)
      </small>
     </div>
-    <button aria-label="Konfirmasi via WhatsApp" id="checkoutBtn" type="button">
-     Konfirmasi via WhatsApp
-    </button>
    </section>
    <!-- Gamepass Section -->
    <section aria-label="Daftar gamepass Roblox yang dijual" class="bg-white rounded-2xl shadow-lg p-8 mb-12 fade-in">
@@ -944,18 +950,6 @@
     </div>
    </div>
   </footer>
-  <!-- Popup Modal -->
-  <div class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm hidden z-50" id="popupOverlay">
-  </div>
-  <div aria-labelledby="popupMessage" aria-modal="true" class="fixed inset-0 flex items-center justify-center p-4 z-50 hidden" id="popup" role="dialog">
-   <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-lg">
-    <p class="whitespace-pre-wrap font-semibold mb-6 text-gray-900" id="popupMessage">
-    </p>
-    <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-xl transition duration-300" onclick="closePopup()">
-     Tutup
-    </button>
-   </div>
-  </div>
   <!-- Toast Container -->
   <div aria-atomic="true" aria-live="polite" id="toastContainer">
   </div>
@@ -980,6 +974,7 @@
    // Variables for selected Robux and price
    let selectedRobux = 0;
    let selectedPrice = 0;
+   let selectedPaymentMethod = null;
 
    // Toast notification function
    const toastContainer = document.getElementById("toastContainer");
@@ -993,49 +988,20 @@
     }, 4000);
    }
 
-   // Validate input and enable/disable button
-   function validateInput(input) {
-    const val = input.value.trim();
-    const errorEl = document.getElementById("inputError");
-    const btn = document.getElementById("calculateBtn");
-    if (
-     !val ||
-     isNaN(val) ||
-     val.includes(".") ||
-     val.includes(",") ||
-     +val < 10 ||
-     +val > 2000 ||
-     !Number.isInteger(Number(val))
-    ) {
-     errorEl.textContent =
-      "Masukkan angka bulat minimal 10 dan maksimal 2000 Robux.";
-     errorEl.classList.remove("hidden");
-     btn.disabled = true;
-     document.getElementById("harga-final").textContent = "Rp—";
-     document.getElementById("priceNote").classList.add("hidden");
-     document.getElementById("paymentMethods").classList.add("hidden");
-     return false;
-    } else {
-     errorEl.classList.add("hidden");
-     btn.disabled = false;
-     return true;
-    }
+   // Validate username input
+   function validateUsername(username) {
+    const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
+    return usernameRegex.test(username);
    }
 
-   // Calculate final price with new rate and markup
-   function calculateFinalPrice(amount) {
-    try {
-     if (!Number.isInteger(amount) || amount < 10 || amount > 2000)
-      throw "Invalid amount";
-     const newRate = 13500 / 100;
-     const baseNew = amount * newRate;
-     const markup = amount >= 125 ? Math.floor(Math.random() * 601) + 900 : 0;
-     return Math.ceil(baseNew + markup);
-    } catch (e) {
-     console.error("PriceCalcError:", e);
-     return null;
-    }
-   }
+   // Validate Robux input and enable/disable checkout button
+   const robuxInput = document.getElementById("jumlah-robux");
+   const usernameInput = document.getElementById("usernameInput");
+   const checkoutBtn = document.getElementById("checkoutBtn");
+   const priceDisplay = document.getElementById("harga-final");
+   const inputError = document.getElementById("inputError");
+   const priceNote = document.getElementById("priceNote");
+   const paymentMethods = document.getElementById("paymentMethods");
 
    // Debounce helper
    function debounce(func, wait) {
@@ -1046,287 +1012,113 @@
     };
    }
 
-   // Dynamic price display on input
-   const inputEl = document.getElementById("jumlah-robux");
-   const priceEl = document.getElementById("harga-final");
-   const calculateBtn = document.getElementById("calculateBtn");
-   const paymentMethods = document.getElementById("paymentMethods");
-   const priceNote = document.getElementById("priceNote");
-
-   const updatePriceDisplay = debounce(() => {
+   // Calculate final price function with new rate 13,200/100 Robux and promo 13,700 discounted to 13,200
+   function calculateFinalPrice(amount) {
     try {
-     const val = inputEl.value.trim();
-     if (!validateInput(inputEl)) {
+     if (!Number.isInteger(amount) || amount < 10 || amount > 2000) throw "Invalid amount";
+     const rate = 13200 / 100;
+     const base = amount * rate;
+     // No hidden profit or discount logic, just fixed price per 100 Robux
+     return Math.ceil(base);
+    } catch (err) {
+     console.error("Error in calculateFinalPrice:", err);
+     return null;
+    }
+   }
+
+   // Update price display and button state
+   function updatePriceAndButton() {
+    try {
+     const val = robuxInput.value.trim();
+     const amount = parseInt(val, 10);
+     if (
+      !val ||
+      isNaN(amount) ||
+      val.includes(".") ||
+      val.includes(",") ||
+      amount < 10 ||
+      amount > 2000 ||
+      !Number.isInteger(amount)
+     ) {
+      inputError.textContent = "Masukkan angka bulat antara 10 sampai 2000 Robux.";
+      inputError.classList.remove("hidden");
+      priceDisplay.style.opacity = 0;
+      setTimeout(() => {
+       priceDisplay.textContent = "—";
+       priceDisplay.style.opacity = 1;
+      }, 100);
+      checkoutBtn.disabled = true;
+      priceNote.classList.add("hidden");
+      paymentMethods.classList.add("hidden");
       selectedRobux = 0;
       selectedPrice = 0;
-      priceEl.textContent = "Rp—";
-      paymentMethods.classList.add("hidden");
-      priceNote.classList.add("hidden");
       return;
      }
-     const amt = parseInt(val, 10);
-     const price = calculateFinalPrice(amt);
-     if (price !== null) {
-      selectedRobux = amt;
-      selectedPrice = price;
-      priceEl.style.opacity = 0;
-      setTimeout(() => {
-       priceEl.textContent = `Rp${price.toLocaleString("id-ID")}`;
-       priceEl.style.opacity = 1;
-      }, 100);
-      paymentMethods.classList.remove("hidden");
-      priceNote.classList.remove("hidden");
-     } else {
-      priceEl.textContent = "Rp—";
-      paymentMethods.classList.add("hidden");
-      priceNote.classList.add("hidden");
-     }
-    } catch (err) {
-     console.error("UpdatePriceError:", err);
-    }
-   }, 300);
-
-   inputEl.addEventListener("input", updatePriceDisplay);
-
-   // Calculate button click (with loader)
-   const calcLoader = document.getElementById("calcLoader");
-   calculateBtn.addEventListener("click", () => {
-    try {
-     if (!validateInput(inputEl)) return;
-     calculateBtn.disabled = true;
-     calcLoader.classList.remove("hidden");
+     inputError.classList.add("hidden");
+     const price = calculateFinalPrice(amount);
+     selectedRobux = amount;
+     selectedPrice = price;
+     priceDisplay.style.opacity = 0;
      setTimeout(() => {
-      const amt = Math.floor(Number(inputEl.value));
-      const price = calculateFinalPrice(amt);
-      if (price !== null) {
-       selectedRobux = amt;
-       selectedPrice = price;
-       priceEl.textContent = `Rp${price.toLocaleString("id-ID")}`;
-       paymentMethods.classList.remove("hidden");
-       priceNote.classList.remove("hidden");
-       document
-        .getElementById("paymentMethods")
-        .scrollIntoView({ behavior: "smooth" });
-      }
-      calculateBtn.disabled = false;
-      calcLoader.classList.add("hidden");
-     }, 700);
-    } catch (err) {
-     console.error("CalculateBtnError:", err);
-     calculateBtn.disabled = false;
-     calcLoader.classList.add("hidden");
+      priceDisplay.textContent = price ? `Rp${price.toLocaleString("id-ID")}` : "—";
+      priceDisplay.style.opacity = 1;
+     }, 100);
+     checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
+     priceNote.classList.remove("hidden");
+     paymentMethods.classList.remove("hidden");
+    } catch (e) {
+     console.error(e);
     }
-   });
+   }
 
-   // Confirm payment popup
-   function confirmPayment(method) {
+   // Debounced input listener
+   robuxInput.addEventListener("input", debounce(updatePriceAndButton, 300));
+
+   // Username input listener to enable/disable checkout button
+   usernameInput.addEventListener("input", () => {
     try {
-     if (selectedRobux < 10 || selectedPrice <= 0) {
-      alert("Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu.");
-      return;
-     }
-     const usernameInput = document.getElementById("usernameInput");
      const username = usernameInput.value.trim();
-     const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
-     if (!usernameRegex.test(username)) {
-      showToast(
-       "❌ Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.",
-       "error"
-      );
-      usernameInput.focus();
-      return;
-     }
-     const message = `JUMLAH ROBUX YANG AKAN DIBELI ADALAH ${selectedRobux}.
-HARGA: Rp ${selectedPrice.toLocaleString("id-ID")}.
-METODE PEMBAYARAN YANG DIPILIH ADALAH ${method}.
-USERNAME ROBLOX: ${username}
-
-SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
-     document.getElementById("popupMessage").textContent = message;
-     document.getElementById("popupOverlay").classList.remove("hidden");
-     document.getElementById("popup").classList.remove("hidden");
-    } catch (err) {
-     console.error("ConfirmPaymentError:", err);
-     alert("Terjadi kesalahan, coba lagi nanti.");
+     checkoutBtn.disabled = !(
+      validateUsername(username) && selectedRobux >= 10 && selectedPrice > 0 && selectedPaymentMethod
+     );
+    } catch (e) {
+     console.error(e);
     }
-   }
+   });
 
-   // Close popup
-   function closePopup() {
-    document.getElementById("popupOverlay").classList.add("hidden");
-    document.getElementById("popup").classList.add("hidden");
-   }
-
-   // Tabs functionality
-   const tabButtons = document.querySelectorAll(".tab-btn");
-   const tabContents = document.querySelectorAll(".tab-content");
-
-   tabButtons.forEach((btn) => {
+   // Payment method buttons click handler
+   const paymentButtons = paymentMethods.querySelectorAll(".payment-method");
+   paymentButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-     const target = btn.getAttribute("data-tab");
-
-     tabButtons.forEach((b) => {
-      b.classList.remove("bg-red-800");
-      b.setAttribute("aria-selected", "false");
-      b.classList.remove("ring-2", "ring-red-600");
-      b.setAttribute("tabindex", "-1");
-     });
-     btn.classList.add("bg-red-800", "ring-2", "ring-red-600");
-     btn.setAttribute("aria-selected", "true");
-     btn.setAttribute("tabindex", "0");
-     btn.focus();
-
-     tabContents.forEach((content) => {
-      if (content.id === target) {
-       content.classList.remove("hidden");
-      } else {
-       content.classList.add("hidden");
-      }
-     });
-    });
-   });
-
-   // Initialize first tab active on load
-   window.addEventListener("DOMContentLoaded", () => {
-    tabButtons[0].classList.add("bg-red-800", "ring-2", "ring-red-600");
-    tabButtons[0].setAttribute("aria-selected", "true");
-    tabButtons[0].setAttribute("tabindex", "0");
-    tabContents[0].classList.remove("hidden");
-   });
-
-   // AI Chatbot simulation
-   const chatContainer = document.getElementById("chatContainer");
-   const chatForm = document.getElementById("chatForm");
-   const chatInput = document.getElementById("chatInput");
-
-   // Enhanced bot responses with 20 paragraphs and friendly tone
-   const botResponses = {
-    greeting:
-     "👋 Halo! Saya YanssBot, asisten virtual Anda. Ada yang bisa saya bantu tentang top up Robux? Tanyakan apa saja, saya siap membantu! 😊",
-    minRobux:
-     "⚠️ Minimal pembelian adalah 10 Robux. Silakan masukkan jumlah yang valid ya.",
-    priceInfo: (amount, price) =>
-     `💰 Harga untuk ${amount} Robux adalah Rp ${price.toLocaleString("id-ID")}.`,
-    paymentMethods:
-     "💳 Metode pembayaran yang tersedia: QRIS, DANA, GOPAY. Silakan pilih salah satu setelah menghitung harga.",
-    thanks:
-     "🙏 Terima kasih telah menghubungi YANSS STORE! Jika ada pertanyaan lain, silakan tanyakan kapan saja.",
-    unknown:
-     "🤔 Maaf, saya tidak mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin untuk bantuan lebih lanjut.",
-    robuxGamepassLongReply: `Baik! Berikut adalah penjelasan lengkap tentang pembelian Robux via Gamepass di YANSS STORE. Jika ingin detail lebih lanjut, saya siap membantu! 😊
-
-1. YANSS STORE menyediakan layanan menjual gamepass Roblox melalui sistem gift yang aman dan terpercaya.
-2. Anda dapat membeli gamepass dengan harga yang kompetitif dan proses pengiriman cepat.
-3. Semua gamepass yang kami jual adalah asli dan dapat langsung digunakan di akun Roblox Anda.
-4. Kami memastikan keamanan transaksi tanpa perlu memberikan akses akun Anda.
-5. Proses pembelian mudah, cukup masukkan jumlah Robux yang diinginkan dan pilih metode pembayaran.
-6. Setelah pembayaran dikonfirmasi, gamepass akan dikirimkan via gift Roblox dalam waktu singkat.
-7. Kami menyediakan berbagai jenis gamepass, mulai dari premium hingga eksklusif.
-8. Anda juga bisa mendapatkan promo dan bonus khusus untuk pembelian dalam jumlah besar.
-9. Layanan pelanggan kami siap membantu 24/7 jika Anda mengalami kendala.
-10. Pastikan fitur enable regional di Roblox dimatikan agar gift dapat diterima dengan lancar.
-11. Kami menggunakan metode pembayaran populer seperti QRIS, DANA, dan GOPAY untuk kemudahan Anda.
-12. Semua transaksi tercatat dan dapat dilacak untuk keamanan dan kenyamanan Anda.
-13. Kami selalu memperbarui daftar gamepass yang tersedia sesuai dengan permintaan pasar.
-14. Anda dapat menghubungi admin kami langsung via WhatsApp untuk konsultasi dan bantuan.
-15. Kami menghargai privasi dan keamanan data pelanggan dengan standar tertinggi.
-16. Pembelian gamepass via gift memungkinkan Anda mendapatkan item langka dan fitur premium.
-17. Kami menyediakan tutorial lengkap untuk membantu Anda membuat dan membeli gamepass.
-18. Sistem kami dirancang untuk meminimalisir risiko penipuan dan kesalahan pengiriman.
-19. Kami berkomitmen memberikan pengalaman top up terbaik dengan harga terjangkau.
-20. Terima kasih telah memilih YANSS STORE sebagai partner top up Robux Anda!`,
-   };
-
-   function appendMessage(text, sender) {
-    const div = document.createElement("div");
-    div.classList.add("chat-bubble", sender === "user" ? "chat-user" : "chat-bot");
-    div.textContent = text;
-    chatContainer.appendChild(div);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-   }
-
-   chatForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const userText = chatInput.value.trim();
-    if (!userText) return;
-    appendMessage(userText, "user");
-    chatInput.value = "";
-    setTimeout(() => {
-     const lower = userText.toLowerCase();
-     if (lower.includes("minimal") || lower.includes("minimum")) {
-      appendMessage(botResponses.minRobux, "bot");
-     } else if (lower.includes("harga") || lower.includes("price")) {
-      if (selectedRobux > 0 && selectedPrice > 0) {
-       appendMessage(botResponses.priceInfo(selectedRobux, selectedPrice), "bot");
-      } else {
-       appendMessage(
-        "Silakan masukkan jumlah Robux dan hitung harga terlebih dahulu ya 😊.",
-        "bot"
-       );
-      }
-     } else if (
-      lower.includes("metode") ||
-      lower.includes("bayar") ||
-      lower.includes("payment")
-     ) {
-      appendMessage(botResponses.paymentMethods, "bot");
-     } else if (lower.includes("terima kasih") || lower.includes("thanks")) {
-      appendMessage(botResponses.thanks, "bot");
-     } else if (
-      lower.includes("halo") ||
-      lower.includes("hai") ||
-      lower.includes("hello")
-     ) {
-      appendMessage(botResponses.greeting, "bot");
-     } else if (
-      lower.includes("gamepass") &&
-      (lower.includes("penjelasan") || lower.includes("detail") || lower.includes("lengkap"))
-     ) {
-      appendMessage(botResponses.robuxGamepassLongReply, "bot");
-     } else if (
-      lower.includes("promo") ||
-      lower.includes("diskon") ||
-      lower.includes("bonus")
-     ) {
-      appendMessage(
-       "🎉 Kami sering memberikan promo dan bonus khusus untuk pembelian besar. Hubungi admin untuk info terbaru!",
-       "bot"
+     try {
+      // Remove selected style from all
+      paymentButtons.forEach((b) => {
+       b.classList.remove("ring-4", "ring-yellow-400");
+       b.setAttribute("aria-pressed", "false");
+      });
+      // Add selected style to clicked
+      btn.classList.add("ring-4", "ring-yellow-400");
+      btn.setAttribute("aria-pressed", "true");
+      selectedPaymentMethod = btn.textContent.trim().toUpperCase();
+      checkoutBtn.disabled = !(
+       validateUsername(usernameInput.value.trim()) && selectedRobux >= 10 && selectedPrice > 0 && selectedPaymentMethod
       );
-     } else if (
-      lower.includes("waktu") &&
-      (lower.includes("proses") || lower.includes("lama") || lower.includes("berapa lama"))
-     ) {
-      appendMessage(
-       "⏳ Proses pembelian biasanya memakan waktu 3-7 hari kerja sesuai sistem Roblox. Kami akan bantu pantau ya!",
-       "bot"
-      );
-     } else if (
-      lower.includes("aman") ||
-      lower.includes("keamanan") ||
-      lower.includes("resiko")
-     ) {
-      appendMessage(
-       "🔒 Transaksi di YANSS STORE 100% aman. Kamu tidak perlu memberikan akses akun, dan Robux masuk langsung ke akun kamu.",
-       "bot"
-      );
-     } else {
-      appendMessage(botResponses.unknown, "bot");
+      showToast(`✅ Metode pembayaran dipilih: ${selectedPaymentMethod}`, "success");
+     } catch (e) {
+      console.error(e);
      }
-    }, 1000);
+    });
    });
 
    // Robux package selection logic
    const packageCards = document.querySelectorAll(".package-card");
-   const robuxInput = document.getElementById("jumlah-robux");
 
    packageCards.forEach((card) => {
     const buyBtn = card.querySelector(".buy-now-btn");
     buyBtn.addEventListener("click", () => {
      try {
-      const usernameInput = document.getElementById("usernameInput");
       const username = usernameInput.value.trim();
-      const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
-      if (!usernameRegex.test(username)) {
+      if (!validateUsername(username)) {
        showToast(
         "❌ Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.",
         "error"
@@ -1334,37 +1126,44 @@ SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
        usernameInput.focus();
        return;
       }
+      // Remove selection from all cards
       packageCards.forEach((c) => {
        c.classList.remove("selected");
        c.setAttribute("aria-pressed", "false");
       });
+      // Mark this card as selected
       card.classList.add("selected");
       card.setAttribute("aria-pressed", "true");
 
+      // Set input value and price output
       const robuxAmount = parseInt(card.getAttribute("data-robux"), 10);
       robuxInput.value = robuxAmount;
       selectedRobux = robuxAmount;
 
+      // Calculate price with new fixed rate
       const price = calculateFinalPrice(robuxAmount);
-      selectedPrice = price !== null ? price : 0;
+      selectedPrice = price;
 
-      document.getElementById(
-       "harga-final"
-      ).textContent = selectedPrice
-       ? `Rp ${selectedPrice.toLocaleString("id-ID")}`
-       : "Rp—";
-      paymentMethods.classList.remove("hidden");
+      priceDisplay.style.opacity = 0;
+      setTimeout(() => {
+       priceDisplay.textContent = price ? `Rp${price.toLocaleString("id-ID")}` : "—";
+       priceDisplay.style.opacity = 1;
+      }, 100);
+
+      checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
       priceNote.classList.remove("hidden");
-      calculateBtn.disabled = false;
+      paymentMethods.classList.remove("hidden");
 
       showToast(`✅ Paket ${robuxAmount} Robux berhasil dipilih!`, "success");
 
+      // Scroll to topup section
       document.getElementById("topupSection").scrollIntoView({ behavior: "smooth" });
-     } catch (err) {
-      console.error("PackageSelectError:", err);
+     } catch (e) {
+      console.error(e);
      }
     });
 
+    // Keyboard accessibility: allow Enter or Space to trigger buy button
     card.addEventListener("keydown", (e) => {
      if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -1376,51 +1175,94 @@ SILAKAN SCREENSHOT TEKS INI DAN KIRIM KE WA ADMIN.`;
    // Clipboard copy username
    const copyUsernameBtn = document.getElementById("copyUsernameBtn");
    copyUsernameBtn.addEventListener("click", () => {
-    const usernameInput = document.getElementById("usernameInput");
-    const username = usernameInput.value.trim();
-    if (!username) {
-     showToast("❌ Username kosong, tidak ada yang disalin.", "error");
-     usernameInput.focus();
-     return;
-    }
-    navigator.clipboard
-     .writeText(username)
-     .then(() => {
-      showToast("✅ Username berhasil disalin ke clipboard.", "success");
-     })
-     .catch(() => {
-      showToast("❌ Gagal menyalin username. Silakan coba lagi.", "error");
-     });
-   });
-
-   // WhatsApp checkout flow
-   const checkoutBtn = document.getElementById("checkoutBtn");
-   checkoutBtn.addEventListener("click", () => {
     try {
-     const user = document.getElementById("usernameInput").value.trim();
-     const amt = parseInt(document.getElementById("jumlah-robux").value, 10);
-     const price = calculateFinalPrice(amt);
-     const date = new Date().toLocaleDateString("id-ID");
-     if (!user || !amt || price === null) {
-      alert("Harap lengkapi semua data dengan benar!");
+     const username = usernameInput.value.trim();
+     if (!username) {
+      showToast("❌ Username kosong, tidak ada yang disalin.", "error");
+      usernameInput.focus();
       return;
      }
-     const msg = [
+     navigator.clipboard
+      .writeText(username)
+      .then(() => {
+       showToast("✅ Username berhasil disalin ke clipboard.", "success");
+      })
+      .catch(() => {
+       showToast("❌ Gagal menyalin username. Silakan coba lagi.", "error");
+      });
+    } catch (e) {
+     console.error(e);
+    }
+   });
+
+   // Append WhatsApp confirmation button below form
+   const topupSection = document.getElementById("topupSection");
+   const whatsappBtn = document.createElement("button");
+   whatsappBtn.id = "whatsappConfirm";
+   whatsappBtn.className = "cta-btn mt-4";
+   whatsappBtn.textContent = "Konfirmasi via WhatsApp";
+   whatsappBtn.disabled = true;
+   topupSection.querySelector("section.bg-white.rounded-2xl.shadow-lg.p-8.mb-12").appendChild(whatsappBtn);
+
+   // Enable whatsappConfirm button same as checkoutBtn logic
+   function updateWhatsappBtnState() {
+    try {
+     whatsappBtn.disabled = !(
+      validateUsername(usernameInput.value.trim()) &&
+      selectedPaymentMethod &&
+      selectedRobux >= 10 &&
+      selectedPrice > 0
+     );
+    } catch (e) {
+     console.error(e);
+    }
+   }
+   // Update whatsappConfirm button state on relevant inputs
+   robuxInput.addEventListener("input", () => {
+    updateWhatsappBtnState();
+   });
+   usernameInput.addEventListener("input", () => {
+    updateWhatsappBtnState();
+   });
+   paymentButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+     updateWhatsappBtnState();
+    });
+   });
+
+   // WhatsApp confirmation button click handler
+   whatsappBtn.addEventListener("click", () => {
+    try {
+     const userRaw = usernameInput.value.trim();
+     if (!validateUsername(userRaw)) {
+      alert("Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.");
+      usernameInput.focus();
+      return;
+     }
+     const user = userRaw.replace(/\s+/g, "");
+     const amt = selectedRobux;
+     const price = selectedPrice;
+     const method = selectedPaymentMethod;
+     const date = new Date().toLocaleDateString("id-ID");
+     if (!user || !amt || !price || !method) throw "Incomplete data";
+
+     const lines = [
       "📥 Konfirmasi Pembayaran:",
       `Username Roblox: ${user}`,
-      `Jumlah Robux yang Dibeli: ${amt}`,
+      `Jumlah Robux: ${amt}`,
       `Harga Robux: Rp${price.toLocaleString("id-ID")}`,
+      `Metode Pembayaran: ${method}`,
       `Tanggal Pembelian: ${date}`,
       "",
       "Mohon proses pembelian ini ya🙏",
-     ].join("\n");
-     const waLink = "https://wa.me/6289525486786?text=" + encodeURIComponent(msg);
-     checkoutBtn.disabled = true;
-     window.open(waLink, "_blank");
-     setTimeout(() => (checkoutBtn.disabled = false), 1500);
+     ];
+     const url = "https://wa.me/6289525486786?text=" + encodeURIComponent(lines.join("\n"));
+     whatsappBtn.disabled = true;
+     window.open(url, "_blank");
+     setTimeout(() => (whatsappBtn.disabled = false), 1200);
     } catch (err) {
-     console.error("CheckoutError:", err);
-     alert("Terjadi kesalahan, coba lagi nanti.");
+     console.error("WhatsAppConfirmError:", err);
+     alert("Terjadi kesalahan, coba lagi.");
     }
    });
   </script>
