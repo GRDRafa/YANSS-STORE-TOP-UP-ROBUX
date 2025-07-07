@@ -533,13 +533,13 @@
    <!-- Promo Badge and Microcopy -->
    <div class="text-center mb-4">
     <span class="badge-promo inline-block mb-2">
-     🎉 SPECIAL OFFER! Rp12.950/100 Robux — Feel the savings without paying less!
+     🎉 PROMO TERBARU! Rp13.700/100 Robux dipotong menjadi Rp13.200/100 Robux — Nikmati harga terbaik tanpa kompromi!
     </span>
     <p class="text-red-600 font-semibold select-none">
-     🔥 Harga sama, tapi terasa lebih murah!
+     🔥 Harga asli Rp13.700, sekarang hanya Rp13.200 per 100 Robux!
     </p>
     <p class="text-gray-700 mt-1 mb-6 select-none">
-     First come, first served—stok terbatas setiap hari!
+     Stok terbatas setiap hari, jangan sampai kehabisan! Segera top up dan rasakan keuntungannya.
     </p>
    </div>
    <!-- Username Input with Copy -->
@@ -555,7 +555,7 @@
    </div>
    <!-- Robux Packages Grid -->
    <section aria-label="Paket Robux" class="fade-in" id="robuxPackages">
-    <div aria-pressed="false" class="package-card" data-price="12950" data-robux="100" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="13200" data-robux="100" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -564,7 +564,7 @@
       100 Robux
      </h4>
      <div class="price">
-      Rp 12.950
+      Rp 13.200
      </div>
      <div aria-label="Rating 4 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -582,7 +582,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card best-seller" data-price="25900" data-robux="200" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card best-seller" data-price="26400" data-robux="200" role="button" tabindex="0">
      <div aria-label="Best Seller" class="badge">
       🔥 Best Seller
      </div>
@@ -594,7 +594,7 @@
       200 Robux
      </h4>
      <div class="price">
-      Rp 25.900
+      Rp 26.400
      </div>
      <div aria-label="Rating 5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -612,7 +612,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="64750" data-robux="500" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="85200" data-robux="500" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -621,7 +621,7 @@
       500 Robux
      </h4>
      <div class="price">
-      Rp 64.750
+      Rp 85.200
      </div>
      <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -639,7 +639,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="129500" data-robux="1000" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="132000" data-robux="1000" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -648,7 +648,7 @@
       1000 Robux
      </h4>
      <div class="price">
-      Rp 129.500
+      Rp 132.000
      </div>
      <div aria-label="Rating 5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -666,7 +666,7 @@
       Buy Now
      </button>
     </div>
-    <div aria-pressed="false" class="package-card" data-price="194250" data-robux="1500" role="button" tabindex="0">
+    <div aria-pressed="false" class="package-card" data-price="198000" data-robux="1500" role="button" tabindex="0">
      <div aria-hidden="true" class="robux-icon">
       <i class="fas fa-coins">
       </i>
@@ -675,7 +675,7 @@
       1500 Robux
      </h4>
      <div class="price">
-      Rp 194.250
+      Rp 198.000
      </div>
      <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
       <i class="fas fa-star">
@@ -1010,14 +1010,14 @@
     };
    }
 
-   // Calculate final price function
+   // Calculate final price function with new rate 13,200/100 Robux and promo 13,700 discounted to 13,200
    function calculateFinalPrice(amount) {
     try {
      if (!Number.isInteger(amount) || amount < 10 || amount > 2000) throw "Invalid amount";
-     const rate = 12950 / 100;
+     const rate = 13200 / 100;
      const base = amount * rate;
-     const profit = amount >= 125 ? Math.floor(Math.random() * 501) + 500 : 0;
-     return Math.ceil(base + profit);
+     // No hidden profit or discount logic, just fixed price per 100 Robux
+     return Math.ceil(base);
     } catch (err) {
      console.error("Error in calculateFinalPrice:", err);
      return null;
@@ -1138,7 +1138,7 @@
       robuxInput.value = robuxAmount;
       selectedRobux = robuxAmount;
 
-      // Calculate price with hidden markup if > 125
+      // Calculate price with new fixed rate
       const price = calculateFinalPrice(robuxAmount);
       selectedPrice = price;
 
@@ -1192,8 +1192,6 @@
      console.error(e);
     }
    });
-
-   // Remove any upload or screenshot related code (none present in this code)
 
    // Append WhatsApp confirmation button below form
    const topupSection = document.getElementById("topupSection");
