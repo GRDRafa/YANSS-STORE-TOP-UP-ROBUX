@@ -1,4 +1,4 @@
-<html lang="id" class="transition-colors duration-300 scroll-smooth">
+<html lang="id" class="transition-colors duration-300">
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -32,7 +32,6 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transition: background-color 0.3s ease, color 0.3s ease;
-      scroll-behavior: smooth;
     }
     body {
       background-color: var(--bg-dark);
@@ -415,7 +414,6 @@
       min-width: 44px;
       min-height: 44px;
       user-select: none;
-      will-change: transform, box-shadow;
     }
     .buy-now-btn:hover,
     .buy-now-btn:focus {
@@ -441,7 +439,6 @@
       transition: left 0.5s ease-in-out;
       pointer-events: none;
       z-index: 1;
-      will-change: left;
     }
     .buy-now-btn:hover::after,
     .buy-now-btn:focus::after {
@@ -474,7 +471,6 @@
       display: flex;
       align-items: center;
       pointer-events: auto;
-      will-change: opacity, transform;
     }
     .toast.success {
       background: #004d22;
@@ -583,7 +579,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      will-change: background-color, box-shadow;
     }
     #copyUsernameBtn:hover,
     #copyUsernameBtn:focus {
@@ -598,6 +593,18 @@
       font-style: italic;
       margin-top: 0.25rem;
       user-select: none;
+    }
+    /* New badge promo style */
+    .badge-promo {
+      background: var(--accent-color);
+      color: var(--text-dark);
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: 600;
+      animation: pulse 1.2s ease-in-out infinite;
+      user-select: none;
+      box-shadow: var(--shadow-accent-light);
     }
     /* Price display fade */
     #harga-final {
@@ -630,7 +637,6 @@
       box-shadow: var(--shadow-accent-light);
       min-height: 44px;
       line-height: 1.2;
-      will-change: transform, box-shadow;
     }
     .cta-btn:hover:not(:disabled),
     .cta-btn:focus:not(:disabled) {
@@ -713,7 +719,6 @@
       text-shadow: 0 0 6px var(--accent-color);
       min-width: 160px;
       text-align: left;
-      transition: color 0.3s ease;
     }
     /* Input error message */
     #inputError {
@@ -846,7 +851,6 @@
       font-size: 1.25rem;
       animation: glowText 3s ease-in-out infinite alternate;
       z-index: 10;
-      will-change: color, text-shadow;
     }
     @keyframes glowText {
       0% {
@@ -948,7 +952,6 @@
       user-select: none;
       transition: background-color 0.3s ease, color 0.3s ease;
       z-index: 10000;
-      will-change: background-color, color;
     }
     html.light #aiAssistantWidget {
       background: var(--bg-light);
@@ -966,8 +969,6 @@
       align-items: center;
       justify-content: space-between;
       user-select: none;
-      will-change: background-color;
-      transition: background-color 0.3s ease;
     }
     #aiAssistantHeader:hover,
     #aiAssistantHeader:focus {
@@ -983,8 +984,6 @@
       display: none;
       flex-direction: column;
       gap: 0.75rem;
-      will-change: background-color, color;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     html.light #aiAssistantContent {
       background: var(--bg-light);
@@ -1038,7 +1037,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      will-change: background-color, box-shadow;
     }
     #aiAssistantSendBtn:hover,
     #aiAssistantSendBtn:focus {
@@ -1063,8 +1061,6 @@
       box-shadow: var(--shadow-accent);
       font-size: 0.9rem;
       line-height: 1.3;
-      will-change: background-color, color;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .ai-message.user {
       background-color: var(--accent-color);
@@ -1090,92 +1086,6 @@
         bottom: 3rem;
         right: 5%;
       }
-    }
-    /* New styles for countdown and flash sale banner */
-    #countdownTimer {
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: #ff3b3b;
-      text-shadow:
-        0 0 8px #ff3b3b,
-        0 0 15px #ff3b3b,
-        0 0 20px #ff3b3b;
-      user-select: none;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-      font-family: 'Inter', sans-serif;
-      will-change: color, text-shadow;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-    #countdownTimer.ended {
-      color: #888;
-      text-shadow: none;
-    }
-    #flashSaleBanner {
-      background: linear-gradient(90deg, #ffcc00, #ff9900);
-      color: #1a1a1a;
-      font-weight: 800;
-      font-size: 1.125rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 1rem;
-      max-width: 480px;
-      margin: 0 auto 1.5rem auto;
-      text-align: center;
-      box-shadow:
-        0 0 10px #ffcc00,
-        0 0 20px #ff9900,
-        0 0 30px #ffcc00;
-      user-select: none;
-      animation: pulseFlash 2.5s ease-in-out infinite alternate;
-      will-change: box-shadow, color;
-      transition: box-shadow 0.3s ease, color 0.3s ease;
-    }
-    @keyframes pulseFlash {
-      0% {
-        box-shadow:
-          0 0 10px #ffcc00,
-          0 0 20px #ff9900,
-          0 0 30px #ffcc00;
-        color: #1a1a1a;
-      }
-      100% {
-        box-shadow:
-          0 0 20px #ffcc00,
-          0 0 40px #ff9900,
-          0 0 60px #ffcc00;
-        color: #000;
-      }
-    }
-    #customerProgressContainer {
-      max-width: 480px;
-      margin: 0 auto 2rem auto;
-      background: #004d22;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 0 15px #00ff88aa;
-      user-select: none;
-      height: 24px;
-      will-change: box-shadow;
-      transition: box-shadow 0.3s ease;
-    }
-    #customerProgressBar {
-      height: 100%;
-      background: linear-gradient(90deg, #00ff88, #00cc6a);
-      width: 0%;
-      transition: width 0.5s ease;
-      will-change: width;
-    }
-    #customerProgressText {
-      text-align: center;
-      font-weight: 700;
-      color: #00ff88;
-      margin-top: 0.25rem;
-      font-size: 0.875rem;
-      user-select: none;
-      text-shadow: 0 0 6px #00ff88;
-      font-family: 'Inter', sans-serif;
-      will-change: color, text-shadow;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
   </style>
 </head>
@@ -1311,18 +1221,6 @@
     </div>
   </nav>
 
-  <!-- Countdown Timer & Flash Sale Banner -->
-  <section aria-label="Flash Sale Countdown and Banner" class="max-w-5xl mx-auto px-6 mt-6">
-    <div id="countdownTimer" role="timer" aria-live="polite" aria-atomic="true" tabindex="0" aria-label="Waktu tersisa untuk flash sale"></div>
-    <div id="flashSaleBanner" tabindex="0" aria-live="polite" aria-atomic="true" role="alert">
-      ⚡ FLASH SALE LIMITED TO 30 CUSTOMERS ONLY! HURRY BEFORE IT'S GONE!
-    </div>
-    <div id="customerProgressContainer" aria-label="Progress bar jumlah pelanggan flash sale" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" tabindex="0">
-      <div id="customerProgressBar"></div>
-    </div>
-    <div id="customerProgressText" tabindex="0" aria-live="polite" aria-atomic="true">0 dari 30 pelanggan telah membeli</div>
-  </section>
-
   <!-- Hero Section -->
   <header
     aria-label="Hero section with Roblox avatar and call to action"
@@ -1363,14 +1261,15 @@
     <!-- Promo Badge and Microcopy -->
     <div class="text-center mb-4 fade-in">
       <span class="badge-promo inline-block mb-2" role="alert" tabindex="0"
-        >🎉 PROMO TERBARU! Rp11.000/100 Robux — Nikmati harga terbaik tanpa
+        >🎉 PROMO TERBARU! Rp13.200/100 Robux — Nikmati harga terbaik tanpa
         kompromi!</span
       >
       <p class="text-[#00ff88] font-semibold select-none" tabindex="0">
-        🔥 Harga spesial Rp11.000 per 100 Robux selama FLASH SALE!
+        🔥 Harga tetap Rp13.200 per 100 Robux!
       </p>
       <p class="text-green-300 mt-1 mb-6 select-none" tabindex="0">
-        Stok terbatas hanya untuk 30 pelanggan pertama! Jangan sampai kehabisan!
+        Stok terbatas setiap hari, jangan sampai kehabisan! Segera top up dan
+        rasakan keuntungannya.
       </p>
     </div>
 
@@ -1410,7 +1309,7 @@
       <div
         aria-pressed="false"
         class="package-card"
-        data-price="11000"
+        data-price="13200"
         data-robux="100"
         role="button"
         tabindex="0"
@@ -1427,7 +1326,7 @@
             tabindex="-1"
           ></i>
         </h4>
-        <div class="price">Rp 11.000</div>
+        <div class="price">Rp 13.200</div>
         <div aria-label="Rating 4 dari 5 bintang" class="stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -1438,7 +1337,7 @@
       <div
         aria-pressed="false"
         class="package-card best-seller"
-        data-price="22000"
+        data-price="26400"
         data-robux="200"
         role="button"
         tabindex="0"
@@ -1456,7 +1355,7 @@
             tabindex="-1"
           ></i>
         </h4>
-        <div class="price">Rp 22.000</div>
+        <div class="price">Rp 26.400</div>
         <div aria-label="Rating 5 dari 5 bintang" class="stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -1467,7 +1366,7 @@
       <div
         aria-pressed="false"
         class="package-card"
-        data-price="55000"
+        data-price="66000"
         data-robux="500"
         role="button"
         tabindex="0"
@@ -1484,7 +1383,7 @@
             tabindex="-1"
           ></i>
         </h4>
-        <div class="price">Rp 55.000</div>
+        <div class="price">Rp 66.000</div>
         <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -1495,7 +1394,7 @@
       <div
         aria-pressed="false"
         class="package-card"
-        data-price="110000"
+        data-price="132000"
         data-robux="1000"
         role="button"
         tabindex="0"
@@ -1512,7 +1411,7 @@
             tabindex="-1"
           ></i>
         </h4>
-        <div class="price">Rp 110.000</div>
+        <div class="price">Rp 132.000</div>
         <div aria-label="Rating 5 dari 5 bintang" class="stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
@@ -1523,7 +1422,7 @@
       <div
         aria-pressed="false"
         class="package-card"
-        data-price="165000"
+        data-price="198000"
         data-robux="1500"
         role="button"
         tabindex="0"
@@ -1540,30 +1439,8 @@
             tabindex="-1"
           ></i>
         </h4>
-        <div class="price">Rp 165.000</div>
+        <div class="price">Rp 198.000</div>
         <div aria-label="Rating 4.5 dari 5 bintang" class="stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i
-          ><i class="fas fa-star"></i><i class="fas fa-star"></i
-          ><i class="fas fa-star-half-alt"></i>
-        </div>
-        <button class="buy-now-btn" type="button">Buy Now</button>
-      </div>
-      <div
-        aria-pressed="false"
-        class="package-card"
-        data-price="12100"
-        data-robux="110"
-        role="button"
-        tabindex="0"
-      >
-        <div aria-hidden="true" class="robux-icon">
-          <i class="fas fa-coins"></i>
-        </div>
-        <h4>
-          110 Robux
-        </h4>
-        <div class="price">Rp 12.100</div>
-        <div aria-label="Rating 4 dari 5 bintang" class="stars">
           <i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star"></i><i class="fas fa-star"></i
           ><i class="fas fa-star-half-alt"></i>
@@ -1636,7 +1513,7 @@
           Order Now
         </button>
         <p class="mt-2 text-green-300 text-sm select-none" tabindex="0">
-          First come, first served—stok terbatas hanya untuk 30 pelanggan pertama!
+          First come, first served—stok terbatas setiap hari!
         </p>
       </div>
       <div
@@ -1904,7 +1781,153 @@
       </ul>
     </section>
 
-    <!-- Removed the "SEGERA HADIR FLASH SALE BIG YANSSZS STORE" tab section as requested -->
+    <!-- Tabs Section -->
+    <section class="max-w-4xl mx-auto fade-in">
+      <div
+        aria-label="Informasi tambahan"
+        class="flex justify-center space-x-6 mb-8 flex-wrap"
+        role="tablist"
+      >
+        <button
+          aria-controls="caraPembelian"
+          aria-selected="true"
+          class="tab-btn"
+          data-tab="caraPembelian"
+          id="tab-caraPembelian"
+          role="tab"
+          tabindex="0"
+        >
+          Cara Pembelian
+        </button>
+        <button
+          aria-controls="testimoni"
+          aria-selected="false"
+          class="tab-btn"
+          data-tab="testimoni"
+          id="tab-testimoni"
+          role="tab"
+          tabindex="-1"
+        >
+          Testimoni
+        </button>
+        <button
+          aria-controls="bigSaleTestimoni"
+          aria-selected="false"
+          class="tab-btn"
+          data-tab="bigSaleTestimoni"
+          id="tab-bigSaleTestimoni"
+          role="tab"
+          tabindex="-1"
+        >
+          BIG SALE TESTIMONI
+        </button>
+        <button
+          aria-controls="kontak"
+          aria-selected="false"
+          class="tab-btn"
+          data-tab="kontak"
+          id="tab-kontak"
+          role="tab"
+          tabindex="-1"
+        >
+          Kontak Admin
+        </button>
+      </div>
+      <div
+        aria-labelledby="tab-caraPembelian"
+        class="tab-content bg-[#003311] rounded-xl shadow-lg p-8 text-green-300 max-w-3xl mx-auto"
+        id="caraPembelian"
+        role="tabpanel"
+      >
+        <h3 class="text-2xl font-bold text-[#00ff88] mb-5">Cara Pembelian</h3>
+        <ol class="list-decimal list-inside space-y-3 text-lg">
+          <li>Buat gamepass di Roblox sesuai instruksi admin.</li>
+          <li>Atur harga gamepass sesuai arahan admin.</li>
+          <li>Pastikan fitur enable regional dimatikan agar pembelian berhasil.</li>
+          <li>
+            Video tutorial lengkap:
+            <a
+              class="text-[#00ff88] underline hover:text-[#00cc6a]"
+              href="https://vt.tiktok.com/ZSkANYJU9/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Tonton di TikTok</a
+            >
+          </li>
+        </ol>
+      </div>
+      <div
+        aria-labelledby="tab-testimoni"
+        class="tab-content bg-[#003311] rounded-xl shadow-lg p-8 text-green-300 max-w-3xl mx-auto hidden"
+        id="testimoni"
+        role="tabpanel"
+      >
+        <h3 class="text-2xl font-bold text-[#00ff88] mb-5">Testimoni</h3>
+        <p class="text-lg leading-relaxed">
+          "Pelayanan cepat dan harga sangat bersahabat! Saya sangat puas dengan
+          YANSS STORE." – <strong>Rizky</strong><br /><br />
+          "Proses top up mudah dan admin sangat responsif. Recommended banget!" –
+          <strong>Sari</strong><br /><br />
+          Untuk testimoni lebih lengkap, kunjungi saluran WhatsApp kami:
+          <a
+            class="text-[#00ff88] underline hover:text-[#00cc6a]"
+            href="https://whatsapp.com/channel/0029Vb6Eseb6RGJ8rapkMb2x"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Saluran WhatsApp</a
+          >
+        </p>
+      </div>
+      <div
+        aria-labelledby="tab-bigSaleTestimoni"
+        class="tab-content bg-[#003311] rounded-xl shadow-lg p-8 text-green-300 max-w-3xl mx-auto hidden"
+        id="bigSaleTestimoni"
+        role="tabpanel"
+      >
+        <h3
+          class="text-2xl font-bold text-[#00ff88] mb-5 text-center select-none"
+          tabindex="0"
+        >
+          YANSSZS STORE • 400+ TESTIMONI
+        </h3>
+        <iframe
+          id="bigSaleTestimoniEmbed"
+          src="https://www.instagram.com/p/DLfEAuJym7r/embed"
+          title="Instagram post embed for BIG SALE TESTIMONI"
+          loading="lazy"
+          allowtransparency="true"
+          scrolling="no"
+          frameborder="0"
+          aria-label="Instagram post embed"
+        ></iframe>
+      </div>
+      <div
+        aria-labelledby="tab-kontak"
+        class="tab-content bg-[#003311] rounded-xl shadow-lg p-8 text-green-300 max-w-3xl mx-auto hidden"
+        id="kontak"
+        role="tabpanel"
+      >
+        <h3 class="text-2xl font-bold text-[#00ff88] mb-5">Kontak Admin</h3>
+        <p class="text-lg">
+          Anda dapat menghubungi admin melalui WhatsApp di nomor:<br />
+          <strong class="text-[#00ff88] text-xl">+62 895-4284-31963</strong>
+        </p>
+        <a
+          class="inline-flex items-center mt-6 px-6 py-3 bg-[#00ff88] hover:bg-[#00cc6a] text-[#0a1e0a] rounded-xl font-semibold shadow-lg transition duration-300 focus:outline-none focus:ring-4 focus:ring-[#00ff88]"
+          href="https://wa.me/62895428431963"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          <i class="fab fa-whatsapp fa-lg mr-3"></i>Chat Admin via WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Flash Sale Teaser -->
+    <section id="flashSaleTeaser" aria-label="Flash Sale Teaser" tabindex="0" role="region" aria-live="polite">
+      SEGERA HADIR FLASH SALE BIG YANSSZS STORE – 100 Robux / 11k
+    </section>
 
     <!-- AI Chatbot Section -->
     <section
@@ -2129,7 +2152,7 @@
     }
 
     /* =========================
-       Module: Validation & Price Calculation with Hidden Fee Logic
+       Module: Validation & Price Calculation
     ========================= */
     const usernameInput = document.getElementById("usernameInput");
     const robuxInput = document.getElementById("jumlah-robux");
@@ -2144,7 +2167,6 @@
     let selectedPrice = 0;
     let selectedPaymentMethod = null;
     let currentSurcharge = 0;
-    let hiddenFee = 0;
 
     function validateUsername(username) {
       const usernameRegex = /^[A-Za-z0-9_]{3,20}$/;
@@ -2153,18 +2175,14 @@
 
     function calculateFinalPrice(amount) {
       if (!Number.isInteger(amount) || amount < 20 || amount > 100000) return null;
-      const baseRate = 11000 / 100; // Updated base rate Rp11.000 per 100 Robux
+      const baseRate = 13200 / 100;
       const basePrice = amount * baseRate;
       let surcharge = 0;
-      hiddenFee = 0;
-      if (amount === 110) {
-        // Add hidden fee silently between 1000 and 3700
-        hiddenFee = Math.floor(Math.random() * 2501) + 1000;
-      } else if (amount > 130) {
+      if (amount > 130) {
         surcharge = Math.floor(Math.random() * 1001) + 1000; // 1000 to 2000 inclusive
       }
-      currentSurcharge = surcharge + hiddenFee;
-      return Math.ceil(basePrice + currentSurcharge);
+      currentSurcharge = surcharge;
+      return Math.ceil(basePrice + surcharge);
     }
 
     function updatePriceAndButton() {
@@ -2193,7 +2211,6 @@
         selectedRobux = 0;
         selectedPrice = 0;
         currentSurcharge = 0;
-        hiddenFee = 0;
         return;
       }
       inputError.classList.add("hidden");
@@ -2206,7 +2223,7 @@
         priceDisplay.style.opacity = 1;
       }, 100);
       estimasiKedatangan.textContent = "Estimasi Kedatangan: 5 Hari";
-      checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod || countdownEnded;
+      checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
       priceNote.classList.remove("hidden");
       paymentMethods.classList.remove("hidden");
     }
@@ -2216,7 +2233,7 @@
     usernameInput.addEventListener("input", () => {
       const username = usernameInput.value.trim();
       checkoutBtn.disabled = !(
-        validateUsername(username) && selectedRobux >= 20 && selectedPrice > 0 && selectedPaymentMethod && !countdownEnded
+        validateUsername(username) && selectedRobux >= 20 && selectedPrice > 0 && selectedPaymentMethod
       );
     });
 
@@ -2234,7 +2251,7 @@
         btn.setAttribute("aria-pressed", "true");
         selectedPaymentMethod = btn.textContent.trim().toUpperCase();
         checkoutBtn.disabled = !(
-          validateUsername(usernameInput.value.trim()) && selectedRobux >= 20 && selectedPrice > 0 && selectedPaymentMethod && !countdownEnded
+          validateUsername(usernameInput.value.trim()) && selectedRobux >= 20 && selectedPrice > 0 && selectedPaymentMethod
         );
         showToast(`✅ Metode pembayaran dipilih: ${selectedPaymentMethod}`, "success");
       });
@@ -2255,10 +2272,6 @@
             "error"
           );
           usernameInput.focus();
-          return;
-        }
-        if(countdownEnded){
-          showToast("❌ Flash sale sudah berakhir. Pembelian tidak dapat dilakukan.", "error");
           return;
         }
         packageCards.forEach((c) => {
@@ -2283,7 +2296,7 @@
 
         estimasiKedatangan.textContent = "Estimasi Kedatangan: 5 Hari";
 
-        checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod || countdownEnded;
+        checkoutBtn.disabled = !validateUsername(usernameInput.value.trim()) || !selectedPaymentMethod;
         priceNote.classList.remove("hidden");
         paymentMethods.classList.remove("hidden");
 
@@ -2325,10 +2338,6 @@
        Module: WhatsApp Confirmation
     ========================= */
     checkoutBtn.addEventListener("click", () => {
-      if(countdownEnded){
-        alert("Flash sale sudah berakhir. Pembelian tidak dapat dilakukan.");
-        return;
-      }
       const userRaw = usernameInput.value.trim();
       if (!validateUsername(userRaw)) {
         alert("Username Roblox tidak valid. Gunakan 3-20 karakter alfanumerik atau underscore.");
@@ -2417,13 +2426,13 @@
 
         const lowerMsg = userMessage.toLowerCase();
         if (lowerMsg.includes("harga")) {
-          botBubble.textContent = "Harga Robux mulai dari Rp11.000 per 100 Robux. Promo dan diskon tersedia.";
+          botBubble.textContent = "Harga Robux mulai dari Rp13.200 per 100 Robux. Pilih paket yang Anda inginkan.";
         } else if (lowerMsg.includes("cara beli") || lowerMsg.includes("cara pembelian")) {
           botBubble.textContent = "Anda dapat memilih paket Robux, masukkan username Roblox, pilih metode pembayaran, lalu konfirmasi via WhatsApp.";
         } else if (lowerMsg.includes("kontak") || lowerMsg.includes("admin")) {
           botBubble.textContent = "Anda dapat menghubungi admin kami melalui WhatsApp di +62 895-4284-31963.";
         } else {
-          botBubble.textContent = "Maaf, saya belum mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin hehe.";
+          botBubble.textContent = "Maaf, saya belum mengerti pertanyaan Anda. Silakan coba pertanyaan lain atau hubungi admin.";
         }
 
         chatContainer.appendChild(botBubble);
@@ -2496,9 +2505,9 @@
           setTimeout(() => {
             const q = question.toLowerCase();
             if (q.includes("harga")) {
-              resolve("Harga Robux mulai dari Rp11.000 per 100 Robux. Promo dan diskon tersedia.");
+              resolve("Harga Robux mulai dari Rp13.200 per 100 Robux. Promo dan diskon tersedia.");
             } else if (q.includes("estimasi") || q.includes("waktu")) {
-              resolve("Estimasi kedatangan Robux adalah 5 atau 120jam  hari kerja setelah konfirmasi pembayaran.");
+              resolve("Estimasi kedatangan Robux adalah 5 hari kerja setelah konfirmasi pembayaran.");
             } else if (q.includes("promo") || q.includes("diskon")) {
               resolve("Kami selalu memiliki promo menarik, termasuk flash sale. Pantau terus website kami!");
             } else {
@@ -2536,111 +2545,9 @@
       // Initialize widget closed
       toggleWidget();
     })();
-
-    /* =========================
-       Module: Countdown Timer & Customer Progress Bar
-    ========================= */
-    const countdownTimer = document.getElementById("countdownTimer");
-    const checkoutButton = document.getElementById("checkoutBtn");
-    const customerProgressBar = document.getElementById("customerProgressBar");
-    const customerProgressText = document.getElementById("customerProgressText");
-    const customerProgressContainer = document.getElementById("customerProgressContainer");
-
-    const maxCustomers = 30;
-    let currentCustomers = 0;
-    let countdownEnded = false;
-
-    // Set countdown target 48 hours (2 days) from now
-    const countdownTarget = new Date(Date.now() + 48 * 60 * 60 * 1000);
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = countdownTarget - now;
-
-      if (diff <= 0) {
-        countdownTimer.textContent = "FLASH SALE TELAH BERAKHIR";
-        countdownTimer.classList.add("ended");
-        countdownEnded = true;
-        checkoutBtn.disabled = true;
-        // Disable all buy buttons
-        document.querySelectorAll(".buy-now-btn").forEach(btn => btn.disabled = true);
-        // Disable input and payment methods
-        robuxInput.disabled = true;
-        paymentButtons.forEach(btn => btn.disabled = true);
-        usernameInput.disabled = true;
-        copyUsernameBtn.disabled = true;
-        return;
-      }
-
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      countdownTimer.textContent = `Waktu tersisa FLASH SALE: ${hours.toString().padStart(2, "0")} : ${minutes.toString().padStart(2, "0")} : ${seconds.toString().padStart(2, "0")}`;
-    }
-
-    // Update countdown every second
-    updateCountdown();
-    const countdownInterval = setInterval(() => {
-      updateCountdown();
-      if (countdownEnded) {
-        clearInterval(countdownInterval);
-      }
-    }, 1000);
-
-    // Fake customer progress bar increment
-    function incrementCustomerCount() {
-      if (currentCustomers < maxCustomers) {
-        currentCustomers++;
-        const percent = (currentCustomers / maxCustomers) * 100;
-        customerProgressBar.style.width = `${percent}%`;
-        customerProgressContainer.setAttribute("aria-valuenow", currentCustomers);
-        customerProgressText.textContent = `${currentCustomers} dari ${maxCustomers} pelanggan telah membeli`;
-        if (currentCustomers === maxCustomers) {
-          customerProgressText.textContent = "⚡ FLASH SALE TELAH HABIS! TERIMA KASIH!";
-          // Disable purchase button and inputs
-          checkoutBtn.disabled = true;
-          document.querySelectorAll(".buy-now-btn").forEach(btn => btn.disabled = true);
-          robuxInput.disabled = true;
-          paymentButtons.forEach(btn => btn.disabled = true);
-          usernameInput.disabled = true;
-          copyUsernameBtn.disabled = true;
-          countdownTimer.textContent = "FLASH SALE TELAH BERAKHIR";
-          countdownTimer.classList.add("ended");
-          countdownEnded = true;
-          clearInterval(customerInterval);
-        }
-      }
-    }
-
-    // Slowly increment customers every 12 seconds (simulate demand)
-    const customerInterval = setInterval(() => {
-      incrementCustomerCount();
-    }, 12000);
-
-    /* =========================
-       Override checkoutBtn disabled state on countdown end
-    ========================= */
-    // Also update checkoutBtn disabled state on input changes to respect countdownEnded
-    function updateCheckoutBtnState() {
-      const usernameValid = validateUsername(usernameInput.value.trim());
-      checkoutBtn.disabled = !(usernameValid && selectedRobux >= 20 && selectedPrice > 0 && selectedPaymentMethod && !countdownEnded);
-    }
-
-    robuxInput.addEventListener("input", debounce(() => {
-      updatePriceAndButton();
-      updateCheckoutBtnState();
-    }, 300));
-
-    usernameInput.addEventListener("input", () => {
-      updateCheckoutBtnState();
-    });
-
-    paymentButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        updateCheckoutBtnState();
-      });
-    });
   </script>
 </body>
 </html>
+
+
+
